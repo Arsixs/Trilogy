@@ -21,7 +21,7 @@ public class Homescreen extends AppCompatActivity {
             return insets;
 
         });
-//Hello
-        //ana
+//welcome
+
     }
 }
