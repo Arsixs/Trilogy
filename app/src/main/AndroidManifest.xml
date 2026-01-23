@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trilogy">
         <activity
+            android:name=".Playscreen"
+            android:exported="false" />
+        <activity
+            android:name=".activity_screen"
+            android:exported="false" />
+        <activity
             android:name=".Homescreen"
             android:exported="false" />
         <activity
