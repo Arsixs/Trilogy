@@ -8,4 +8,23 @@
     android:background="@drawable/playscreen"
     tools:context=".Playscreen">
 
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="149dp"
+        android:layout_height="181dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="fitStart"
+        app:srcCompat="@drawable/englishbtn"
+        tools:layout_editor_absoluteX="213dp"
+        tools:layout_editor_absoluteY="115dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="147dp"
+        android:layout_height="174dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="fitStart"
+        app:srcCompat="@drawable/sciencebtn"
+        tools:layout_editor_absoluteX="213dp"
+        tools:layout_editor_absoluteY="296dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
