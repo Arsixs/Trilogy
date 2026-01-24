@@ -6,55 +6,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/home"
-    tools:context=".Homescreen">
+    tools:context="Homescreen">
 
-    <Button
+    <ImageButton
         android:id="@+id/playbtn"
-        android:layout_width="232dp"
-        android:layout_height="73dp"
-        android:alpha="0"
-        android:layout_marginStart="105dp"
-        android:layout_marginEnd="105dp"
-        android:text="Button"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="240dp"
+        android:layout_height="72dp"
+        android:backgroundTint="#0026641F"
+        app:layout_constraintBottom_toTopOf="@+id/optionbtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.484" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/playbtn" />
 
-    <Button
+    <ImageButton
         android:id="@+id/optionbtn"
-        android:layout_width="232dp"
-        android:layout_height="73dp"
-        android:alpha="0"
-        android:layout_marginStart="105dp"
-        android:layout_marginEnd="105dp"
-        android:text="Button"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="245dp"
+        android:layout_height="68dp"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/exitbtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playbtn"
-        app:layout_constraintVertical_bias="0.037"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/optionbtn" />
 
-    <Button
+    <ImageButton
         android:id="@+id/exitbtn"
-        android:layout_width="232dp"
-        android:layout_height="73dp"
-        android:alpha="0"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:text="Button"
-        android:visibility="visible"
+        android:layout_width="241dp"
+        android:layout_height="74dp"
+        android:backgroundTint="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/optionbtn"
-        app:layout_constraintVertical_bias="0.049"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.674"
+        app:srcCompat="@drawable/exitbtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

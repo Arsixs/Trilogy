@@ -1,6 +1,7 @@
 package com.example.trilogy;
 
 import android.app.AlertDialog;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -8,8 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.PopupWindow;
-
+import android.view.animation.OvershootInterpolator;
+import android.view.MotionEvent;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -30,8 +33,13 @@ public class Homescreen extends AppCompatActivity {
             return insets;
         });
 
-        Button playbtn = findViewById(R.id.playbtn);
-        Button optionbtn = findViewById(R.id.optionbtn);
+        ImageButton playbtn = findViewById(R.id.playbtn);
+        ImageButton optionbtn = findViewById(R.id.optionbtn);
+        ImageButton exitbtn = findViewById(R.id.exitbtn);
+
+        addPressAnimation(playbtn);
+        addPressAnimation(optionbtn);
+        addPressAnimation(exitbtn);
 
 
         playbtn.setOnClickListener(view -> {
@@ -63,5 +71,30 @@ public class Homescreen extends AppCompatActivity {
 
         // Optional: dismiss when clicking the image
         popupView.setOnClickListener(v -> popupWindow.dismiss());
+    }
+    //Animation button for Play,Option, Exit Btn
+    private void addPressAnimation(ImageButton button) {
+        button.setOnTouchListener((v, event) -> {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    v.animate()
+                            .scaleX(0.92f)
+                            .scaleY(0.92f)
+                            .setDuration(80)
+                            .start();
+                    break;
+
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    v.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .setDuration(150)
+                            .setInterpolator(new OvershootInterpolator())
+                            .start();
+                    break;
+            }
+            return false; // keeps onClick working
+        });
     }
 }
