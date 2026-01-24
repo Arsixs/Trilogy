@@ -10,39 +10,43 @@
 
     <ImageButton
         android:id="@+id/playbtn"
-        android:layout_width="240dp"
-        android:layout_height="72dp"
+        android:layout_width="302dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="8dp"
         android:backgroundTint="#0026641F"
         app:layout_constraintBottom_toTopOf="@+id/optionbtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.386"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.974"
         app:srcCompat="@drawable/playbtn" />
 
     <ImageButton
         android:id="@+id/optionbtn"
-        android:layout_width="245dp"
-        android:layout_height="68dp"
+        android:layout_width="288dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:backgroundTint="#00FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/exitbtn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.982"
         app:srcCompat="@drawable/optionbtn" />
 
     <ImageButton
         android:id="@+id/exitbtn"
-        android:layout_width="241dp"
-        android:layout_height="74dp"
+        android:layout_width="285dp"
+        android:layout_height="76dp"
         android:backgroundTint="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.674"
+        app:layout_constraintVertical_bias="0.711"
         app:srcCompat="@drawable/exitbtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

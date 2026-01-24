@@ -9,22 +9,44 @@
     tools:context=".Playscreen">
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="149dp"
-        android:layout_height="181dp"
+        android:id="@+id/englishbtn"
+        android:layout_width="139dp"
+        android:layout_height="170dp"
         android:backgroundTint="#00FFFFFF"
-        android:scaleType="fitStart"
-        app:srcCompat="@drawable/englishbtn"
-        tools:layout_editor_absoluteX="213dp"
-        tools:layout_editor_absoluteY="115dp" />
+        android:scaleType="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.816"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.192"
+        app:srcCompat="@drawable/englishbtn" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="147dp"
-        android:layout_height="174dp"
+        android:id="@+id/sciencebtn"
+        android:layout_width="139dp"
+        android:layout_height="170dp"
         android:backgroundTint="#00FFFFFF"
-        android:scaleType="fitStart"
-        app:srcCompat="@drawable/sciencebtn"
-        tools:layout_editor_absoluteX="213dp"
-        tools:layout_editor_absoluteY="296dp" />
+        android:scaleType="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toEndOf="@+id/mathbtn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.518"
+        app:srcCompat="@drawable/sciencebtn" />
+
+    <ImageButton
+        android:id="@+id/mathbtn"
+        android:layout_width="139dp"
+        android:layout_height="170dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.198"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.518"
+        app:srcCompat="@drawable/mathbtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
