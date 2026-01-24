@@ -1,6 +1,5 @@
 package com.example.trilogy;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.animation.OvershootInterpolator;
@@ -12,35 +11,36 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Playscreen extends AppCompatActivity {
+public class Engchoosegame extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_playscreen);
+        setContentView(R.layout.activity_engchoosegame);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        ImageButton englishbtn= findViewById(R.id.englishbtn);
-        ImageButton mathbtn= findViewById(R.id.mathbtn);
-        ImageButton sciencebtn= findViewById(R.id.sciencebtn);
+        //Initialize
+        ImageButton Wordbtn = findViewById(R.id.wnqbtn);
+        ImageButton Emojibtn = findViewById(R.id.eimbtn);
+        ImageButton Worldbtn = findViewById(R.id.wbbtn);
 
-        addPressPlayScreenAnimation(englishbtn);
-        addPressPlayScreenAnimation(mathbtn);
-        addPressPlayScreenAnimation(sciencebtn);
-
-        englishbtn.setOnClickListener(v->{
-            Intent engpress = new Intent(Playscreen.this, Engchoosegame.class);
-            startActivity(engpress);
-            finish();
-        });
+        //Animation press btn
+        addEngChooseGamePressAnimation(Wordbtn);
+        addEngChooseGamePressAnimation(Emojibtn);
+        addEngChooseGamePressAnimation(Worldbtn);
     }
-    //Press Animation for English,MAth, and Science button
-    private void addPressPlayScreenAnimation(ImageButton button) {
+
+    //EnglishChoosebtn Presser
+    private void addEngChooseGamePressAnimation(ImageButton button) {
         button.setOnTouchListener((v, event) -> {
+
+            v.setPivotX(v.getWidth() / 2f);
+            v.setPivotY(v.getHeight() / 2f);
+
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     v.animate()
@@ -60,7 +60,7 @@ public class Playscreen extends AppCompatActivity {
                             .start();
                     break;
             }
-            return false; // keeps onClick working
+            return false;
         });
     }
-}
+    }

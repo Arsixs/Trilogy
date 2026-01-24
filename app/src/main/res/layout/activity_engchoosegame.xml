@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/enggms"
+    tools:context=".Engchoosegame">
+
+    <ImageButton
+        android:id="@+id/wnqbtn"
+        android:layout_width="360dp"
+        android:layout_height="142dp"
+        android:layout_marginTop="212dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/eimbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/wnqbtn" />
+
+    <ImageButton
+        android:id="@+id/eimbtn"
+        android:layout_width="360dp"
+        android:layout_height="142dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/wbbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wnqbtn"
+        app:srcCompat="@drawable/eimbtn" />
+
+    <ImageButton
+        android:id="@+id/wbbtn"
+        android:layout_width="360dp"
+        android:layout_height="142dp"
+        android:layout_marginBottom="96dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/worldbtn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
