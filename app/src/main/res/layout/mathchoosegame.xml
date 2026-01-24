@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/MathGms">
+    android:background="@drawable/mathgms">
+
 
     <Button
         android:id="@+id/smbtn"
@@ -41,4 +42,5 @@
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bdbtn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
