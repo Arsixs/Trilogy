@@ -5,6 +5,52 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/choosegamebg"
     tools:context=".Mathchoosegame">
 
+    <ImageButton
+        android:id="@+id/nsbtn"
+        android:layout_width="331dp"
+        android:layout_height="100dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/smbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bdbtn"
+        app:layout_constraintVertical_bias="0.559"
+        app:srcCompat="@drawable/nsbtn" />
+
+    <ImageButton
+        android:id="@+id/bdbtn"
+        android:layout_width="332dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="216dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bdbtn" />
+
+    <ImageButton
+        android:id="@+id/smbtn"
+        android:layout_width="331dp"
+        android:layout_height="106dp"
+        android:layout_marginBottom="132dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/smbtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
