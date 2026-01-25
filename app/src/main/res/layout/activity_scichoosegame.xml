@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/scigms"
+    android:background="@drawable/choosegamebg"
     tools:context=".Scichoosegame">
 
     <ImageButton
@@ -27,8 +27,8 @@
         android:layout_height="194dp"
         android:layout_marginBottom="96dp"
         android:background="@android:color/transparent"
-        android:scaleType="centerCrop"
         android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
         app:layout_constraintBaseline_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
