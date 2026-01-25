@@ -10,29 +10,29 @@
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="430dp"
-        android:layout_height="520dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="300dp"
+        android:layout_height="91dp"
         android:background="@android:color/transparent"
         android:scaleType="centerCrop"
         android:src="@drawable/registerbtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.742"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.991" />
+        app:layout_constraintTop_toBottomOf="@+id/pass2"
+        app:layout_constraintVertical_bias="0.121" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="132dp"
         android:alpha="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.724"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.712"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.819" />
 
     <EditText
         android:id="@+id/user2"
@@ -41,24 +41,28 @@
         android:ems="10"
         android:hint="Username"
         android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
+        android:textColor="#000000"
+        android:textColorHint="#84050505"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.606"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48000002" />
 
     <EditText
         android:id="@+id/pass2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="text"
+        android:textColor="#000000"
+        android:textColorHint="#84050505"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.606"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.128" />
 </androidx.constraintlayout.widget.ConstraintLayout>
