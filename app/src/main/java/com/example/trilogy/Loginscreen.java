@@ -2,6 +2,8 @@ package com.example.trilogy;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -34,8 +36,10 @@ public class Loginscreen extends AppCompatActivity {
         });
         uname1 = findViewById(R.id.uname1);
         pass1 = findViewById(R.id.pass1);
-        imageButton = findViewById(R.id.imageButton);
+        imageButton = findViewById(R.id.loginbtn);
         button1 = findViewById(R.id.button1);
+        //Animation button
+        addLoginScreenAnimationPressAnimation(imageButton);
 
         dbHelper = new DatabaseHelper(this);
 
@@ -55,6 +59,34 @@ public class Loginscreen extends AppCompatActivity {
 
         button1.setOnClickListener(v -> {
             startActivity(new Intent(Loginscreen.this, Registerscreen.class));
+        });
+    }
+    private void addLoginScreenAnimationPressAnimation(ImageButton button) {
+        button.setOnTouchListener((v, event) -> {
+
+            v.setPivotX(v.getWidth() / 2f);
+            v.setPivotY(v.getHeight() / 2f);
+
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    v.animate()
+                            .scaleX(0.92f)
+                            .scaleY(0.92f)
+                            .setDuration(80)
+                            .start();
+                    break;
+
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    v.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .setDuration(150)
+                            .setInterpolator(new OvershootInterpolator())
+                            .start();
+                    break;
+            }
+            return false;
         });
     }
 }
