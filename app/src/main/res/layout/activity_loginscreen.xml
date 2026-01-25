@@ -10,7 +10,7 @@
 
     <ImageButton
         android:id="@+id/loginbtn"
-        android:layout_width="365dp"
+        android:layout_width="310dp"
         android:layout_height="82dp"
         android:background="@android:color/transparent"
         android:scaleType="centerCrop"
@@ -28,6 +28,8 @@
         android:ems="10"
         android:hint="Username"
         android:inputType="text"
+        android:textColor="#000000"
+        android:textColorHint="#84050505"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.597"
@@ -42,6 +44,8 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="text"
+        android:textColor="#000000"
+        android:textColorHint="#84050505"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.597"
