@@ -17,9 +17,10 @@
         android:src="@drawable/loginbtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pass1"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintVertical_bias="0.135" />
 
     <EditText
         android:id="@+id/uname1"
@@ -34,8 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.597"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.485" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/pass1"
@@ -51,7 +51,7 @@
         app:layout_constraintHorizontal_bias="0.597"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uname1"
-        app:layout_constraintVertical_bias="0.107" />
+        app:layout_constraintVertical_bias="0.08" />
 
     <Button
         android:id="@+id/button1"
