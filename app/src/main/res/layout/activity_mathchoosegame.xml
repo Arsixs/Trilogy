@@ -5,6 +5,43 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mathgms"
     tools:context=".Mathchoosegame">
 
+    <ImageButton
+        android:id="@+id/bdbtn"
+        android:layout_width="392dp"
+        android:layout_height="161dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.305"
+        app:srcCompat="@drawable/bdbtn" />
+
+    <ImageButton
+        android:id="@+id/smbtn"
+        android:layout_width="392dp"
+        android:layout_height="161dp"
+        android:layout_marginBottom="108dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/smbtn" />
+
+    <ImageButton
+        android:id="@+id/nsbtn"
+        android:layout_width="392dp"
+        android:layout_height="161dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/smbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bdbtn"
+        app:srcCompat="@drawable/nsbtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

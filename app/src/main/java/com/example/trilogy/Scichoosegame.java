@@ -1,6 +1,9 @@
 package com.example.trilogy;
 
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.animation.OvershootInterpolator;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +22,35 @@ public class Scichoosegame extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+        ImageButton ecbtn = findViewById(R.id.ecbtn);
+        ImageButton gtobtn = findViewById(R.id.gtobtn);
+        //Animation press
+        addPressPlayScreenAnimation(ecbtn);
+        addPressPlayScreenAnimation(gtobtn);
+    }
+    private void addPressPlayScreenAnimation(ImageButton button) {
+        button.setOnTouchListener((v, event) -> {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    v.animate()
+                            .scaleX(0.92f)
+                            .scaleY(0.92f)
+                            .setDuration(80)
+                            .start();
+                    break;
+
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    v.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .setDuration(150)
+                            .setInterpolator(new OvershootInterpolator())
+                            .start();
+                    break;
+            }
+            return false; // keeps onClick working
         });
     }
 }

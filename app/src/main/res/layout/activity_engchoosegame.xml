@@ -10,8 +10,8 @@
 
     <ImageButton
         android:id="@+id/wnqbtn"
-        android:layout_width="360dp"
-        android:layout_height="142dp"
+        android:layout_width="392dp"
+        android:layout_height="161dp"
         android:layout_marginTop="212dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
@@ -24,8 +24,8 @@
 
     <ImageButton
         android:id="@+id/eimbtn"
-        android:layout_width="360dp"
-        android:layout_height="142dp"
+        android:layout_width="392dp"
+        android:layout_height="161dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/wbbtn"
@@ -37,8 +37,8 @@
 
     <ImageButton
         android:id="@+id/wbbtn"
-        android:layout_width="361dp"
-        android:layout_height="108dp"
+        android:layout_width="392dp"
+        android:layout_height="161dp"
         android:layout_marginBottom="68dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
@@ -46,6 +46,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.313"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/worldbtn"/>
+        app:srcCompat="@drawable/worldbtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

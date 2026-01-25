@@ -1,6 +1,8 @@
 package com.example.trilogy;
 
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -37,6 +39,7 @@ public class Registerscreen extends AppCompatActivity {
         imageButton2 = findViewById(R.id.imageButton2);
         button2 = findViewById(R.id.button2);
 
+        addRegisterScreenAnimationPressAnimation(imageButton2);
 
 
         dbHelper = new DatabaseHelper(this);
@@ -62,5 +65,33 @@ public class Registerscreen extends AppCompatActivity {
         });
 
         button2.setOnClickListener(v -> finish());
+    }
+    private void addRegisterScreenAnimationPressAnimation(ImageButton button) {
+        button.setOnTouchListener((v, event) -> {
+
+            v.setPivotX(v.getWidth() / 2f);
+            v.setPivotY(v.getHeight() / 2f);
+
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    v.animate()
+                            .scaleX(0.92f)
+                            .scaleY(0.92f)
+                            .setDuration(80)
+                            .start();
+                    break;
+
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    v.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .setDuration(150)
+                            .setInterpolator(new OvershootInterpolator())
+                            .start();
+                    break;
+            }
+            return false;
+        });
     }
 }
