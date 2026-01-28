@@ -1,6 +1,5 @@
 package com.example.trilogy;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.animation.OvershootInterpolator;
@@ -12,38 +11,28 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Scichoosegame extends AppCompatActivity {
+public class Difficulty extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_scichoosegame);
+        setContentView(R.layout.activity_difficulty);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        ImageButton easybtn = findViewById(R.id.easybtn);
+        ImageButton normalbtn = findViewById(R.id.normalbtn);
+        ImageButton hardbtn = findViewById(R.id.hardbtn);
 
-        ImageButton ecbtn = findViewById(R.id.ecbtn);
-        ImageButton gtobtn = findViewById(R.id.gtobtn);
-        //Animation press
-        addPressPlayScreenAnimation(ecbtn);
-        addPressPlayScreenAnimation(gtobtn);
-
-        ecbtn.setOnClickListener(v->{
-        Intent ec = new Intent(this, Difficulty.class);
-        startActivity(ec);
-        finish();
-
-        });
-        gtobtn.setOnClickListener(v-> {
-            Intent gto = new Intent(this,Difficulty.class );
-            startActivity(gto);
-            finish();
-        });
+        addPressDifficultyAnimation(easybtn);
+        addPressDifficultyAnimation(normalbtn);
+        addPressDifficultyAnimation(hardbtn);
     }
-    private void addPressPlayScreenAnimation(ImageButton button) {
+
+    private void addPressDifficultyAnimation(ImageButton button) {
         button.setOnTouchListener((v, event) -> {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:

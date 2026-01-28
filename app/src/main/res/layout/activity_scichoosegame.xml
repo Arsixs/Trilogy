@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,34 +7,31 @@
     android:background="@drawable/choosegamebg"
     tools:context=".Scichoosegame">
 
-    <ImageButton
-        android:id="@+id/ecbtn"
-        android:layout_width="340dp"
-        android:layout_height="240dp"
-        android:layout_marginBottom="88dp"
-        android:background="@android:color/transparent"
-        android:backgroundTint="#00FFFFFF"
-        android:scaleType="centerCrop"
-        app:layout_constraintBaseline_toBottomOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ecbtn" />
+    <!-- Fragment container (EMPTY by default) -->
 
+    <!-- Game buttons -->
     <ImageButton
         android:id="@+id/gtobtn"
         android:layout_width="340dp"
         android:layout_height="240dp"
-        android:layout_marginTop="189dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="192dp"
         android:background="@android:color/transparent"
-        android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
-        app:layout_constraintBaseline_toBottomOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/ecbtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/gtobtn" />
+
+    <ImageButton
+        android:id="@+id/ecbtn"
+        android:layout_width="340dp"
+        android:layout_height="240dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toBottomOf="@id/gtobtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/ecbtn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

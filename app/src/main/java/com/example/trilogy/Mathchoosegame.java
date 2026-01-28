@@ -1,5 +1,6 @@
 package com.example.trilogy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.animation.OvershootInterpolator;
@@ -30,6 +31,23 @@ public class Mathchoosegame extends AppCompatActivity {
         addMathChooserGameAnimationPressAnimation(bdbtn);
         addMathChooserGameAnimationPressAnimation(nsbtn);
         addMathChooserGameAnimationPressAnimation(smbtn);
+
+        bdbtn.setOnClickListener(v->{
+            Intent bd = new Intent(this, Difficulty.class);
+            startActivity(bd);
+            finish();
+
+        });
+        nsbtn.setOnClickListener(v-> {
+            Intent ns = new Intent(this,Difficulty.class );
+            startActivity(ns);
+            finish();
+        });
+        smbtn.setOnClickListener(v-> {
+            Intent sm = new Intent(this,Difficulty.class );
+            startActivity(sm);
+            finish();
+        });
     }
     private void addMathChooserGameAnimationPressAnimation(ImageButton button) {
         button.setOnTouchListener((v, event) -> {

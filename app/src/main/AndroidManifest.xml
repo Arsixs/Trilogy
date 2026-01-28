@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trilogy">
         <activity
+            android:name=".Difficulty"
+            android:exported="false" />
+        <activity
             android:name=".Scichoosegame"
             android:exported="false" />
         <activity
@@ -30,7 +33,7 @@
             android:name=".Playscreen"
             android:exported="false" />
         <activity
-            android:name=".activity_screen"
+            android:name=".Diffuculty"
             android:exported="false" />
         <activity
             android:name=".Homescreen"

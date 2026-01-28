@@ -1,5 +1,6 @@
 package com.example.trilogy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.animation.OvershootInterpolator;
@@ -32,6 +33,23 @@ public class Engchoosegame extends AppCompatActivity {
         addEngChooseGamePressAnimation(Wordbtn);
         addEngChooseGamePressAnimation(Emojibtn);
         addEngChooseGamePressAnimation(Worldbtn);
+
+        Wordbtn.setOnClickListener(v->{
+            Intent Word = new Intent(this, Difficulty.class);
+            startActivity(Word);
+            finish();
+
+        });
+        Emojibtn.setOnClickListener(v-> {
+            Intent emoji = new Intent(this,Difficulty.class );
+            startActivity(emoji);
+            finish();
+        });
+        Worldbtn.setOnClickListener(v-> {
+            Intent world = new Intent(this,Difficulty.class );
+            startActivity(world);
+            finish();
+    });
     }
 
     //EnglishChoosebtn Presser
