@@ -35,20 +35,26 @@ public class Engchoosegame extends AppCompatActivity {
         addEngChooseGamePressAnimation(Worldbtn);
 
         Wordbtn.setOnClickListener(v->{
-            Intent Word = new Intent(this, Difficulty.class);
-            startActivity(Word);
-            finish();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.engfragment, new Difficultychooser())
+                    .addToBackStack(null)
+                    .commit();
 
         });
         Emojibtn.setOnClickListener(v-> {
-            Intent emoji = new Intent(this,Difficulty.class );
-            startActivity(emoji);
-            finish();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.engfragment, new Difficultychooser())
+                    .addToBackStack(null)
+                    .commit();
         });
         Worldbtn.setOnClickListener(v-> {
-            Intent world = new Intent(this,Difficulty.class );
-            startActivity(world);
-            finish();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.engfragment, new Difficultychooser())
+                    .addToBackStack(null)
+                    .commit();
     });
     }
 

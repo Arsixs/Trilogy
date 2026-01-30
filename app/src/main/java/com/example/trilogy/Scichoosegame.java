@@ -32,15 +32,20 @@ public class Scichoosegame extends AppCompatActivity {
         addPressPlayScreenAnimation(gtobtn);
 
         ecbtn.setOnClickListener(v->{
-        Intent ec = new Intent(this, Difficulty.class);
-        startActivity(ec);
-        finish();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragmentContainerView, new Difficultychooser())
+                    .addToBackStack(null)
+                    .commit();
 
         });
         gtobtn.setOnClickListener(v-> {
-            Intent gto = new Intent(this,Difficulty.class );
-            startActivity(gto);
-            finish();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragmentContainerView, new Difficultychooser())
+                    .addToBackStack(null)
+                    .commit();
+//
         });
     }
     private void addPressPlayScreenAnimation(ImageButton button) {

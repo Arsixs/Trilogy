@@ -35,17 +35,17 @@ public class Playscreen extends AppCompatActivity {
         englishbtn.setOnClickListener(v->{
             Intent engpress = new Intent(Playscreen.this, Engchoosegame.class);
             startActivity(engpress);
-            finish();
+
         });
         mathbtn.setOnClickListener(v->{
             Intent mathpress = new Intent(Playscreen.this, Mathchoosegame.class);
             startActivity(mathpress);
-            finish();
+
         });
         sciencebtn.setOnClickListener(v->{
             Intent sciencepress = new Intent(Playscreen.this,Scichoosegame.class);
             startActivity(sciencepress);
-            finish();
+
         });
     }
     //Press Animation for English,MAth, and Science button

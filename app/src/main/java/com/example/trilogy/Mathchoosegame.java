@@ -33,20 +33,26 @@ public class Mathchoosegame extends AppCompatActivity {
         addMathChooserGameAnimationPressAnimation(smbtn);
 
         bdbtn.setOnClickListener(v->{
-            Intent bd = new Intent(this, Difficulty.class);
-            startActivity(bd);
-            finish();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.mathfragment, new Difficultychooser())
+                    .addToBackStack(null)
+                    .commit();
 
         });
         nsbtn.setOnClickListener(v-> {
-            Intent ns = new Intent(this,Difficulty.class );
-            startActivity(ns);
-            finish();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.mathfragment, new Difficultychooser())
+                    .addToBackStack(null)
+                    .commit();
         });
         smbtn.setOnClickListener(v-> {
-            Intent sm = new Intent(this,Difficulty.class );
-            startActivity(sm);
-            finish();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.mathfragment, new Difficultychooser())
+                    .addToBackStack(null)
+                    .commit();
         });
     }
     private void addMathChooserGameAnimationPressAnimation(ImageButton button) {
