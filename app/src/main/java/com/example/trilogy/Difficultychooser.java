@@ -72,11 +72,17 @@ public class Difficultychooser extends Fragment {
         ImageButton easybtn = view.findViewById(R.id.easybtn);
         ImageButton normalbtn = view.findViewById(R.id.normalbtn);
         ImageButton hardbtn = view.findViewById(R.id.hardbtn);
+        ImageButton Backbtn = view.findViewById(R.id.backbtn);
 
         // Add animations
         addPressDifficultyAnimation(easybtn);
         addPressDifficultyAnimation(normalbtn);
         addPressDifficultyAnimation(hardbtn);
+
+        Backbtn.setOnClickListener(v -> {
+            requireActivity().getSupportFragmentManager().popBackStack();
+        });
+
 
         return view;
     }

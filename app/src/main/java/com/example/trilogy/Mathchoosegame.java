@@ -1,6 +1,7 @@
 package com.example.trilogy;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.animation.OvershootInterpolator;
@@ -27,12 +28,14 @@ public class Mathchoosegame extends AppCompatActivity {
         ImageButton bdbtn = findViewById(R.id.bdbtn);
         ImageButton nsbtn = findViewById(R.id.smbtn);
         ImageButton smbtn = findViewById(R.id.nsbtn);
+        ImageButton Mathback = findViewById(R.id.mathback);
         //Animation
         addMathChooserGameAnimationPressAnimation(bdbtn);
         addMathChooserGameAnimationPressAnimation(nsbtn);
         addMathChooserGameAnimationPressAnimation(smbtn);
+        addMathChooserGameAnimationPressAnimation(Mathback);
 
-        bdbtn.setOnClickListener(v->{
+        bdbtn.setOnClickListener(v -> {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.mathfragment, new Difficultychooser())
@@ -40,19 +43,22 @@ public class Mathchoosegame extends AppCompatActivity {
                     .commit();
 
         });
-        nsbtn.setOnClickListener(v-> {
+        nsbtn.setOnClickListener(v -> {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.mathfragment, new Difficultychooser())
                     .addToBackStack(null)
                     .commit();
         });
-        smbtn.setOnClickListener(v-> {
+        smbtn.setOnClickListener(v -> {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.mathfragment, new Difficultychooser())
                     .addToBackStack(null)
                     .commit();
+        });
+        Mathback.setOnClickListener(v -> {
+            finish();
         });
     }
     private void addMathChooserGameAnimationPressAnimation(ImageButton button) {

@@ -28,13 +28,15 @@ public class Engchoosegame extends AppCompatActivity {
         ImageButton Wordbtn = findViewById(R.id.wnqbtn);
         ImageButton Emojibtn = findViewById(R.id.eimbtn);
         ImageButton Worldbtn = findViewById(R.id.wbbtn);
+        ImageButton Engback = findViewById(R.id.engback);
 
         //Animation press btn
         addEngChooseGamePressAnimation(Wordbtn);
         addEngChooseGamePressAnimation(Emojibtn);
         addEngChooseGamePressAnimation(Worldbtn);
+        addEngChooseGamePressAnimation(Engback);
 
-        Wordbtn.setOnClickListener(v->{
+        Wordbtn.setOnClickListener(v -> {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.engfragment, new Difficultychooser())
@@ -42,20 +44,23 @@ public class Engchoosegame extends AppCompatActivity {
                     .commit();
 
         });
-        Emojibtn.setOnClickListener(v-> {
+        Emojibtn.setOnClickListener(v -> {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.engfragment, new Difficultychooser())
                     .addToBackStack(null)
                     .commit();
         });
-        Worldbtn.setOnClickListener(v-> {
+        Worldbtn.setOnClickListener(v -> {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.engfragment, new Difficultychooser())
                     .addToBackStack(null)
                     .commit();
-    });
+        });
+        Engback.setOnClickListener(v -> {
+            finish();
+        });
     }
 
     //EnglishChoosebtn Presser

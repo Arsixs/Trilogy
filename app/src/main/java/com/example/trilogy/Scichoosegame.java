@@ -27,9 +27,11 @@ public class Scichoosegame extends AppCompatActivity {
 
         ImageButton ecbtn = findViewById(R.id.ecbtn);
         ImageButton gtobtn = findViewById(R.id.gtobtn);
+        ImageButton Scienceback = findViewById(R.id.scienceback);
         //Animation press
         addPressPlayScreenAnimation(ecbtn);
         addPressPlayScreenAnimation(gtobtn);
+        addPressPlayScreenAnimation(Scienceback);
 
         ecbtn.setOnClickListener(v->{
             getSupportFragmentManager()
@@ -46,6 +48,10 @@ public class Scichoosegame extends AppCompatActivity {
                     .addToBackStack(null)
                     .commit();
 //
+        });
+        Scienceback.setOnClickListener(v -> {
+            finish();
+
         });
     }
     private void addPressPlayScreenAnimation(ImageButton button) {

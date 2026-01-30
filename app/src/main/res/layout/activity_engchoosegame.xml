@@ -9,15 +9,26 @@
     tools:context=".Engchoosegame">
 
     <ImageButton
+        android:id="@+id/engback"
+        android:layout_width="243dp"
+        android:layout_height="93dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        android:src="@drawable/backbtn"
+        app:layout_constraintEnd_toEndOf="@+id/wbbtn"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="@+id/wbbtn"
+        app:layout_constraintTop_toBottomOf="@+id/wbbtn" />
+
+    <ImageButton
         android:id="@+id/wnqbtn"
         android:layout_width="392dp"
         android:layout_height="161dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="164dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/eimbtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/wnqbtn" />
@@ -31,8 +42,7 @@
         app:layout_constraintBottom_toTopOf="@+id/wbbtn"
         app:layout_constraintEnd_toEndOf="@+id/wnqbtn"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/wnqbtn"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/wnqbtn"
         app:layout_constraintTop_toBottomOf="@+id/wnqbtn"
         app:srcCompat="@drawable/eimbtn" />
 
@@ -40,10 +50,8 @@
         android:id="@+id/wbbtn"
         android:layout_width="396dp"
         android:layout_height="161dp"
-        android:layout_marginBottom="76dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/eimbtn"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/eimbtn"

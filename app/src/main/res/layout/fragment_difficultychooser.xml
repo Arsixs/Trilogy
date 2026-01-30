@@ -10,22 +10,21 @@
 
     <ImageButton
         android:id="@+id/easybtn"
-        android:layout_width="396dp"
+        android:layout_width="370dp"
         android:layout_height="143dp"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="188dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
         android:src="@drawable/easy"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/normalbtn"
-        android:layout_width="372dp"
+        android:layout_width="350dp"
         android:layout_height="136dp"
-        android:layout_marginTop="48dp"
         android:background="@drawable/normal"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
@@ -36,16 +35,27 @@
 
     <ImageButton
         android:id="@+id/hardbtn"
-        android:layout_width="372dp"
+        android:layout_width="350dp"
         android:layout_height="136dp"
         android:background="@drawable/hard"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
         android:src="@drawable/hard"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/normalbtn"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/normalbtn"
-        app:layout_constraintTop_toBottomOf="@+id/normalbtn"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintTop_toBottomOf="@+id/normalbtn" />
+
+    <ImageButton
+        android:id="@+id/backbtn"
+        android:layout_width="243dp"
+        android:layout_height="93dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        android:src="@drawable/backbtn"
+        app:layout_constraintEnd_toEndOf="@+id/hardbtn"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="@+id/hardbtn"
+        app:layout_constraintTop_toBottomOf="@+id/hardbtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
