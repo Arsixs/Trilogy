@@ -10,19 +10,19 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="361dp"
+        android:layout_width="330dp"
         android:layout_height="93dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="12dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:srcCompat="@drawable/user" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="361dp"
+        android:layout_width="330dp"
         android:layout_height="93dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
@@ -90,13 +90,14 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="290dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="94dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="46dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logolog" />
