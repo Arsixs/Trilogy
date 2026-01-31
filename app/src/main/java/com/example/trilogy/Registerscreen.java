@@ -14,6 +14,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class Registerscreen extends AppCompatActivity {
 
@@ -41,8 +48,8 @@ public class Registerscreen extends AppCompatActivity {
 
         addRegisterScreenAnimationPressAnimation(imageButton2);
 
-
-        dbHelper = new DatabaseHelper(this);
+        //Register Firebase
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         imageButton2.setOnClickListener(v -> {
 
@@ -54,17 +61,59 @@ public class Registerscreen extends AppCompatActivity {
                 return;
             }
 
-            boolean success = dbHelper.registerUser(username, password);
+            String hashedPassword = hashPassword(password);
 
-            if (success) {
-                Toast.makeText(this, "Registered successfully", Toast.LENGTH_SHORT).show();
-                finish(); // back to login
-            } else {
-                Toast.makeText(this, "Username already exists", Toast.LENGTH_SHORT).show();
-            }
+            Map<String, Object> user = new HashMap<>();
+            user.put("username", username);
+            user.put("password", hashedPassword);
+
+            db.collection("users")
+                    .document(username) // 👈 username as ID
+                    .get()
+                    .addOnSuccessListener(documentSnapshot -> {
+
+                        if (documentSnapshot.exists()) {
+                            Toast.makeText(this, "Username already exists", Toast.LENGTH_SHORT).show();
+                        } else {
+                            db.collection("users")
+                                    .document(username)
+                                    .set(user)
+                                    .addOnSuccessListener(aVoid -> {
+                                        Toast.makeText(this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    })
+                                    .addOnFailureListener(e ->
+                                            Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show()
+                                    );
+                        }
+                    });
+            button2.setOnClickListener(view -> finish());
+
         });
 
-        button2.setOnClickListener(v -> finish());
+//        dbHelper = new DatabaseHelper(this);
+//
+//        imageButton2.setOnClickListener(v -> {
+//
+//            String username = user2.getText().toString().trim();
+//            String password = pass2.getText().toString().trim();
+//
+//            if (username.isEmpty() || password.isEmpty()) {
+//                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+//                return;
+//            }
+//
+//            boolean success = dbHelper.registerUser(username, password);
+//
+//            if (success) {
+//                Toast.makeText(this, "Registered successfully", Toast.LENGTH_SHORT).show();
+//                finish(); // back to login
+//            } else {
+//                Toast.makeText(this, "Username already exists", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//        button2.setOnClickListener(v -> finish());
     }
     private void addRegisterScreenAnimationPressAnimation(ImageButton button) {
         button.setOnTouchListener((v, event) -> {
@@ -93,5 +142,22 @@ public class Registerscreen extends AppCompatActivity {
             }
             return false;
         });
+    }
+    private String hashPassword(String password) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+            StringBuilder hexString = new StringBuilder();
+
+            for (byte b : hash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+            return hexString.toString();
+
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

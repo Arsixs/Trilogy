@@ -15,6 +15,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Loginscreen extends AppCompatActivity {
 
     EditText uname1, pass1;
@@ -41,21 +49,62 @@ public class Loginscreen extends AppCompatActivity {
         //Animation button
         addLoginScreenAnimationPressAnimation(imageButton);
 
-        dbHelper = new DatabaseHelper(this);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         imageButton.setOnClickListener(v -> {
 
             String username = uname1.getText().toString().trim();
             String password = pass1.getText().toString().trim();
 
-            if (dbHelper.checkUser(username, password)) {
-                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(Loginscreen.this, Homescreen.class));
-                finish();
-            } else {
-                Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            String hashedPassword = hashPassword(password);
+
+            db.collection("users")
+                    .document(username)
+                    .get()
+                    .addOnSuccessListener(documentSnapshot -> {
+
+                        if (documentSnapshot.exists()) {
+                            String storedPassword = documentSnapshot.getString("password");
+
+                            if (hashedPassword.equals(storedPassword)) {
+                                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(Loginscreen.this, Homescreen.class));
+                                finish();
+                            } else {
+                                Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+                            }
+
+                        } else {
+                            Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(e ->
+                            Toast.makeText(this, "Login error", Toast.LENGTH_SHORT).show()
+                    );
         });
+
+
+//
+//        dbHelper = new DatabaseHelper(this);
+//
+//        imageButton.setOnClickListener(v -> {
+//
+//            String username = uname1.getText().toString().trim();
+//            String password = pass1.getText().toString().trim();
+//
+//            if (dbHelper.checkUser(username, password)) {
+//                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
+//                startActivity(new Intent(Loginscreen.this, Homescreen.class));
+//                finish();
+//            } else {
+//                Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         button1.setOnClickListener(v -> {
             startActivity(new Intent(Loginscreen.this, Registerscreen.class));
@@ -89,4 +138,22 @@ public class Loginscreen extends AppCompatActivity {
             return false;
         });
     }
+    private String hashPassword(String password) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+            StringBuilder hexString = new StringBuilder();
+
+            for (byte b : hash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+            return hexString.toString();
+
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
 }
