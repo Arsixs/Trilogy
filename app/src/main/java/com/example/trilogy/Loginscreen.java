@@ -28,7 +28,7 @@ public class Loginscreen extends AppCompatActivity {
     EditText uname1, pass1;
     Button button1;
     ImageButton imageButton;
-    DatabaseHelper dbHelper;
+
 
 
 

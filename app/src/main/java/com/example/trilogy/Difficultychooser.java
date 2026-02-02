@@ -1,5 +1,6 @@
 package com.example.trilogy;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -79,9 +80,14 @@ public class Difficultychooser extends Fragment {
         addPressDifficultyAnimation(normalbtn);
         addPressDifficultyAnimation(hardbtn);
 
+        easybtn.setOnClickListener(v -> {
+            Intent mtheasy = new Intent(requireContext(), bombdef_game.class);
+            startActivity(mtheasy);
+        });
         Backbtn.setOnClickListener(v -> {
             requireActivity().getSupportFragmentManager().popBackStack();
         });
+
 
 
         return view;

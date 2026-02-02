@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/difficult"
-    tools:context=".Difficulty">
+    tools:context=".Difficultychooser">
 
     <ImageButton
         android:id="@+id/easybtn"
@@ -58,4 +58,5 @@
         app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="@+id/hardbtn"
         app:layout_constraintTop_toBottomOf="@+id/hardbtn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

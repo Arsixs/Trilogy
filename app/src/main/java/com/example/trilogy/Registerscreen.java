@@ -27,7 +27,7 @@ public class Registerscreen extends AppCompatActivity {
     EditText user2, pass2;
     Button button2;
     ImageButton imageButton2;
-    DatabaseHelper dbHelper;
+
 
 
     @Override
