@@ -45,11 +45,8 @@ public class Engchoosegame extends AppCompatActivity {
 
         });
         Emojibtn.setOnClickListener(v -> {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.engfragment, new Difficultychooser())
-                    .addToBackStack(null)
-                    .commit();
+            Intent intent = new Intent(this, GameActivity.class);
+            startActivity(intent);
         });
         Worldbtn.setOnClickListener(v -> {
             getSupportFragmentManager()
