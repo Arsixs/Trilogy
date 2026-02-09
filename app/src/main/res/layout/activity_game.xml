@@ -5,86 +5,108 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FBDBAC"
+    android:background="@drawable/bgejimg"
     android:orientation="vertical"
     tools:context=".GameActivity">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="295dp"
-        android:layout_height="21dp"
-        android:layout_margin="16dp"
-        android:max="5"
-        android:progress="0"
-        android:progressTint="#FFC107"
-        app:layout_constraintBottom_toTopOf="@+id/answerInput"
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="35dp"
+        android:layout_height="14dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="70dp"
+        android:text="99:99"
+        android:textAlignment="center"
+        android:textColor="#FCFDFD"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.247" />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:max="5"
+        android:progress="1"
+        app:indicatorColor="#FFC107"
+        app:layout_constraintBottom_toTopOf="@+id/lifeText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.872"
+        app:trackColor="#FFECB3"
+        app:trackCornerRadius="8dp"
+        app:trackThickness="16dp" />
 
     <TextView
         android:id="@+id/progressText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="57dp"
+        android:layout_height="47dp"
         android:text="0/5"
+        android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/img2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.725"
+        app:layout_constraintHorizontal_bias="0.753"
         app:layout_constraintStart_toEndOf="@+id/lifeText"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.895" />
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:layout_constraintVertical_bias="0.466" />
 
     <TextView
         android:id="@+id/lifeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="145dp"
+        android:layout_height="50dp"
         android:layout_margin="16dp"
-        android:text="Lives: ❤❤❤"
+        android:text="❤ ❤ ❤"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintHorizontal_bias="0.131"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.104" />
+        app:layout_constraintVertical_bias="0.29" />
 
     <ImageView
         android:id="@+id/img1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="140dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/img2"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.469"
         tools:src="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/img2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="146dp"
-        android:layout_marginEnd="34dp"
+        android:layout_width="140dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="40dp"
         android:src="@drawable/ic_launcher_background"
-        app:layout_constraintBottom_toTopOf="@+id/answerInput"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/img1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.469" />
 
     <EditText
         android:id="@+id/answerInput"
         android:layout_width="274dp"
         android:layout_height="60dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="4dp"
         android:hint="Input Answer"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -93,38 +115,49 @@
         android:typeface="serif"
         app:layout_constraintBottom_toTopOf="@+id/submit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img1"
-        app:layout_constraintVertical_bias="0.69" />
+        app:layout_constraintTop_toBottomOf="@+id/img1" />
 
     <Button
         android:id="@+id/submit"
         android:layout_width="193dp"
         android:layout_height="60dp"
-        android:layout_marginStart="73dp"
-        android:layout_marginEnd="74dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginTop="4dp"
         android:onClick="submit"
         android:text="Submit"
+        app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answerInput" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="15dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="104dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginBottom="197dp"
-        android:text="+"
+        android:id="@+id/sscore"
+        android:layout_width="35dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="44dp"
+        android:text="0"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textColor="#3F51B5"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/time"
+        app:layout_constraintHorizontal_bias="0.011"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.088" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/timerGif"
+        android:layout_width="217dp"
+        android:layout_height="188dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/answerInput"
-        app:layout_constraintEnd_toStartOf="@+id/img2"
-        app:layout_constraintStart_toEndOf="@+id/img1"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tenseconds"
+        android:src="@drawable/tenseconds"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

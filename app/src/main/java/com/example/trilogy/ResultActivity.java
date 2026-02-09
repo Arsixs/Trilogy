@@ -28,19 +28,24 @@ public class ResultActivity extends AppCompatActivity {
         // Get intent data
         Intent intent = getIntent();
         int score = intent.getIntExtra("SCORE", 0);
+        int rightAnswers = intent.getIntExtra("RIGHT_ANSWERS", 0);
+        int wrongAnswers = intent.getIntExtra("WRONG_ANSWERS", 0);
         boolean gameOver = intent.getBooleanExtra("GAME_OVER", false);
         int remainingLives = intent.getIntExtra("LIVES", 0);
 
         // Bind views
         TextView resultText = findViewById(R.id.resultScore);
+        TextView correctnwrong = findViewById(R.id.resultScore2);
         TextView livesText = findViewById(R.id.remainingLives);
         Button playAgainBtn = findViewById(R.id.playAgainButton);
 
         // Set result message
         if (gameOver) {
             resultText.setText("Game Over 😢\nScore: " + score);
+            correctnwrong.setText("Correct"+rightAnswers+"\nScore: " +wrongAnswers);
         } else {
             resultText.setText("You Win! 🎉\nScore: " + score);
+            correctnwrong.setText("Correct"+rightAnswers+"\nScore: " +wrongAnswers);
         }
 
         // Optional: show remaining lives
