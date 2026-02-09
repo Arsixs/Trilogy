@@ -25,8 +25,8 @@ public class Engchoosegame extends AppCompatActivity {
             return insets;
         });
         //Initialize
-        ImageButton Wordbtn = findViewById(R.id.wnqbtn);
-        ImageButton Emojibtn = findViewById(R.id.eimbtn);
+        ImageButton Wordbtn = findViewById(R.id.wnq);
+        ImageButton Emojibtn = findViewById(R.id.eim);
         ImageButton Worldbtn = findViewById(R.id.wbbtn);
         ImageButton Engback = findViewById(R.id.engback);
 

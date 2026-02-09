@@ -1,76 +1,107 @@
 package com.example.trilogy;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+
+import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.navigation.NavigationView;
 
 public class Playscreen extends AppCompatActivity {
+    MediaPlayer mediaPlayer;
+    DrawerLayout drawerlayout;
+    NavigationView nv_side;
+    ActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_playscreen);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-        ImageButton englishbtn= findViewById(R.id.englishbtn);
-        ImageButton mathbtn= findViewById(R.id.mathbtn);
-        ImageButton sciencebtn= findViewById(R.id.sciencebtn);
 
-        addPressPlayScreenAnimation(englishbtn);
-        addPressPlayScreenAnimation(mathbtn);
-        addPressPlayScreenAnimation(sciencebtn);
+        drawerlayout = findViewById(R.id.main);
+        nv_side = findViewById(R.id.nv_side);
+        mediaPlayer = MediaPlayer.create(this, R.raw.background);
+        mediaPlayer.start();
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        englishbtn.setOnClickListener(v->{
-            Intent engpress = new Intent(Playscreen.this, Engchoosegame.class);
-            startActivity(engpress);
 
-        });
-        mathbtn.setOnClickListener(v->{
-            Intent mathpress = new Intent(Playscreen.this, Mathchoosegame.class);
-            startActivity(mathpress);
 
-        });
-        sciencebtn.setOnClickListener(v->{
-            Intent sciencepress = new Intent(Playscreen.this,Scichoosegame.class);
-            startActivity(sciencepress);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
 
-        });
-    }
-    //Press Animation for English,MAth, and Science button
-    private void addPressPlayScreenAnimation(ImageButton button) {
-        button.setOnTouchListener((v, event) -> {
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_DOWN:
-                    v.animate()
-                            .scaleX(0.92f)
-                            .scaleY(0.92f)
-                            .setDuration(80)
-                            .start();
-                    break;
+        toggle = new ActionBarDrawerToggle(
+                this,
+                drawerlayout,
+                toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close
+        );
+        drawerlayout.addDrawerListener(toggle);
+        toggle.syncState();
 
-                case MotionEvent.ACTION_UP:
-                case MotionEvent.ACTION_CANCEL:
-                    v.animate()
-                            .scaleX(1f)
-                            .scaleY(1f)
-                            .setDuration(150)
-                            .setInterpolator(new OvershootInterpolator())
-                            .start();
-                    break;
+        // Load fragment ONCE
+        if (savedInstanceState == null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, new PlayscreenFrag())
+                    .commit();
+        }
+
+        nv_side.setNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.nav_home) {
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, PlayscreenFrag.class, null)
+                        .commit();
             }
-            return false; // keeps onClick working
+            else if (item.getItemId() == R.id.nav_games) {
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, TrilogyGameFrag.class, null)
+                        .commit();
+            }
+
+            else if (item.getItemId() == R.id.nav_settings) {
+                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+            }
+
+            if (item.getItemId() == R.id.nav_logout) {
+                finishAffinity();
+            }
+
+            drawerlayout.closeDrawers();
+            return true;
         });
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
 }

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background">
+
+        <!-- TITLE -->
+        <TextView
+            android:id="@+id/titleTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trilogy"
+            android:textColor="@android:color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="96dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/subTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose your subject"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="@id/titleTxt"
+            app:layout_constraintTop_toBottomOf="@id/titleTxt"/>
+
+        <!-- MASCOT -->
+        <ImageView
+            android:id="@+id/mascotImg"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="88dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/kidlogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- GRID -->
+        <GridLayout
+            android:id="@+id/gridGames"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:columnCount="2"
+            app:layout_constraintTop_toBottomOf="@id/mascotImg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- BD GAME -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/bd"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
+
+                <ImageView
+                    android:id="@+id/bdGame"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/bdbtn" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- NS GAME -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ns"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
+
+                <ImageView
+                    android:id="@+id/nsGame"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/nsbtn" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- SM GAME -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/sm"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
+
+                <ImageView
+                    android:id="@+id/smGame"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/smbtn" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- GTO GAME -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/gto"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
+
+                <ImageView
+                    android:id="@+id/gtoGame"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/gtobtn" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- EC GAME -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ec"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
+
+                <ImageView
+                    android:id="@+id/ecGame"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/ecbtn" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- EIM GAME -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/eim"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
+
+                <ImageView
+                    android:id="@+id/eimGame"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/eimbtn" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- WORLD GAME -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/world"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
+
+                <ImageView
+                    android:id="@+id/worldGame"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/worldbtn" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- WNQ GAME -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/wnq"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
+
+                <ImageView
+                    android:id="@+id/wnqGame"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/wnqbtn" />
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
