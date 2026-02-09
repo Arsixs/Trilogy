@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/mathgms"
-    tools:context=".Mathchoosegame">
+    tools:context=".mathchoosegame">
 
     <ImageButton
         android:id="@+id/mathback"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@+id/smbtn" />
 
     <ImageButton
-        android:id="@+id/bdbtn"
+        android:id="@+id/bd"
         android:layout_width="392dp"
         android:layout_height="161dp"
         android:layout_marginTop="188dp"
@@ -34,14 +34,14 @@
         app:srcCompat="@drawable/bdbtn" />
 
     <ImageButton
-        android:id="@+id/nsbtn"
+        android:id="@+id/ns"
         android:layout_width="392dp"
         android:layout_height="161dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="@+id/bdbtn"
-        app:layout_constraintStart_toStartOf="@+id/bdbtn"
-        app:layout_constraintTop_toBottomOf="@+id/bdbtn"
+        app:layout_constraintEnd_toEndOf="@+id/bd"
+        app:layout_constraintStart_toStartOf="@+id/bd"
+        app:layout_constraintTop_toBottomOf="@+id/bd"
         app:srcCompat="@drawable/nsbtn" />
 
     <ImageButton
@@ -50,10 +50,10 @@
         android:layout_height="161dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="@+id/nsbtn"
+        app:layout_constraintEnd_toEndOf="@+id/ns"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/nsbtn"
-        app:layout_constraintTop_toBottomOf="@+id/nsbtn"
+        app:layout_constraintStart_toStartOf="@+id/ns"
+        app:layout_constraintTop_toBottomOf="@+id/ns"
         app:srcCompat="@drawable/smbtn" />
 
     <androidx.fragment.app.FragmentContainerView

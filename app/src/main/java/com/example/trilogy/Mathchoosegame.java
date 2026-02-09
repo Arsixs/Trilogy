@@ -1,7 +1,5 @@
 package com.example.trilogy;
 
-import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.animation.OvershootInterpolator;
@@ -25,9 +23,9 @@ public class Mathchoosegame extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        ImageButton bdbtn = findViewById(R.id.bdbtn);
+        ImageButton bdbtn = findViewById(R.id.bd);
         ImageButton nsbtn = findViewById(R.id.smbtn);
-        ImageButton smbtn = findViewById(R.id.nsbtn);
+        ImageButton smbtn = findViewById(R.id.ns);
         ImageButton Mathback = findViewById(R.id.mathback);
         //Animation
         addMathChooserGameAnimationPressAnimation(bdbtn);
@@ -36,13 +34,19 @@ public class Mathchoosegame extends AppCompatActivity {
         addMathChooserGameAnimationPressAnimation(Mathback);
 
         bdbtn.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("GAME_MODE", "BOMB_DEFUSE");
+
+            Difficultychooser fragment = new Difficultychooser();
+            fragment.setArguments(bundle);
+
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.mathfragment, new Difficultychooser())
+                    .replace(R.id.mathfragment, fragment)
                     .addToBackStack(null)
                     .commit();
-
         });
+
         nsbtn.setOnClickListener(v -> {
             getSupportFragmentManager()
                     .beginTransaction()
