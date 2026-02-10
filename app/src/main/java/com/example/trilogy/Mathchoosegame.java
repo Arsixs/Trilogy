@@ -24,8 +24,8 @@ public class Mathchoosegame extends AppCompatActivity {
             return insets;
         });
         ImageButton bdbtn = findViewById(R.id.bd);
-        ImageButton nsbtn = findViewById(R.id.smbtn);
-        ImageButton smbtn = findViewById(R.id.ns);
+        ImageButton nsbtn = findViewById(R.id.ns);
+        ImageButton smbtn = findViewById(R.id.smbtn);
         ImageButton Mathback = findViewById(R.id.mathback);
         //Animation
         addMathChooserGameAnimationPressAnimation(bdbtn);
@@ -54,13 +54,13 @@ public class Mathchoosegame extends AppCompatActivity {
                     .addToBackStack(null)
                     .commit();
         });
-        smbtn.setOnClickListener(v -> {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.mathfragment, new Difficultychooser())
-                    .addToBackStack(null)
-                    .commit();
-        });
+//        smbtn.setOnClickListener(v -> {
+//            getSupportFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.mathfragment, new Difficultychooser())
+//                    .addToBackStack(null)
+//                    .commit();
+//        });
         Mathback.setOnClickListener(v -> {
             finish();
         });

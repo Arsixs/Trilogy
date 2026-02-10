@@ -6,9 +6,12 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.animation.OvershootInterpolator;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +19,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -32,15 +36,23 @@ public class Playscreen extends AppCompatActivity {
     NavigationView nv_side;
     ActionBarDrawerToggle toggle;
 
+    float currentVolume = 0.8f; // default volume
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playscreen);
 
+
+
         drawerlayout = findViewById(R.id.main);
         nv_side = findViewById(R.id.nv_side);
+
         mediaPlayer = MediaPlayer.create(this, R.raw.background);
+        mediaPlayer.setVolume(currentVolume, currentVolume);
         mediaPlayer.start();
+        mediaPlayer.setLooping(true);
+
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -83,7 +95,34 @@ public class Playscreen extends AppCompatActivity {
             }
 
             else if (item.getItemId() == R.id.nav_settings) {
-                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+
+                AlertDialog dialog = new AlertDialog.Builder(this)
+                        .setView(getLayoutInflater().inflate(R.layout.dialog_settings, null))
+                        .create();
+                dialog.show();
+
+                View view = dialog.findViewById(android.R.id.content);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                dialog.show();
+
+                SeekBar musicSeek = view.findViewById(R.id.seek_music);
+                ImageButton closeBtn = view.findViewById(R.id.btn_close);
+
+                // Use CURRENT volume, not reset
+                musicSeek.setProgress((int) (currentVolume * 100));
+
+                musicSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                    @Override
+                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                        currentVolume = progress / 100f;
+                        mediaPlayer.setVolume(currentVolume, currentVolume);
+                    }
+
+                    @Override public void onStartTrackingTouch(SeekBar seekBar) {}
+                    @Override public void onStopTrackingTouch(SeekBar seekBar) {}
+                });
+
+                closeBtn.setOnClickListener(v -> dialog.dismiss());
             }
 
             if (item.getItemId() == R.id.nav_logout) {
@@ -94,7 +133,36 @@ public class Playscreen extends AppCompatActivity {
             return true;
         });
     }
+//public void playaudio(View view){
+//        mediaPlayer.start();
+//}
+//public void stopaudio(View view){
+//        mediaPlayer.pause();
+//}
 
+//User exit to home music will stop
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+//            mediaPlayer.stop();
+//            mediaPlayer.release();
+//            mediaPlayer = null;
+//
+//        }
+//    }
+//User return then music play
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(this, R.raw.background); // re‑initialize
+            mediaPlayer.start();
+        }
+    }
+
+
+    // User really quit the app, music will stop
     @Override
     public void onDestroy() {
         super.onDestroy();

@@ -319,4 +319,15 @@ public class bombdef_game extends AppCompatActivity {
         if (boomSound != null) boomSound.release();
         if (beepSound != null) beepSound.release();
     }
+    //User exit to home music will stop
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (beepSound != null && beepSound.isPlaying()) {
+            beepSound.stop();
+            beepSound.release();
+            beepSound = null;
+
+        }
+    }
 }
