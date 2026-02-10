@@ -67,4 +67,17 @@
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/remainingLives" />
+
+    <TextView
+        android:id="@+id/timetaken"
+        android:layout_width="162dp"
+        android:layout_height="25dp"
+        android:text="Time Taken: "
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/remainingLives"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultScore2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

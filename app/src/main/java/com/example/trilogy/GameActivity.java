@@ -19,12 +19,13 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.trilogy.db.DatabaseHelper;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class GameActivity extends AppCompatActivity {
 
     private static final int MAX_QUESTIONS = 5;
+    private static final long START_TIME = 60000; // 1 minute
 
     private int score = 0;
     private int lives = 3;
@@ -44,8 +45,7 @@ public class GameActivity extends AppCompatActivity {
     private String currentQuestionId;
 
     private CountDownTimer timer;
-    private long timeLeftMillis = 60000; // 1 minute
-    private long startTime;
+    private long timeLeftMillis = START_TIME;
 
     private MediaPlayer beepPlayer;
     private boolean beepPlayed = false;
@@ -53,7 +53,6 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_game);
 
@@ -82,7 +81,6 @@ public class GameActivity extends AppCompatActivity {
         updateTimeUI(timeLeftMillis);
 
         db = new DatabaseHelper(this);
-        startTime = System.currentTimeMillis();
 
         if (db.isEmpty()) {
             syncFromFirestore();
@@ -93,10 +91,11 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    private void syncFromFirestore() {
-        FirebaseFirestore fs = FirebaseFirestore.getInstance();
+    /* -------------------- DATA -------------------- */
 
-        fs.collection("questions")
+    private void syncFromFirestore() {
+        FirebaseFirestore.getInstance()
+                .collection("questions")
                 .get()
                 .addOnSuccessListener(snapshot -> {
                     for (DocumentSnapshot doc : snapshot) {
@@ -133,9 +132,11 @@ public class GameActivity extends AppCompatActivity {
             if (imgRes1 != 0) img1.setImageResource(imgRes1);
             if (imgRes2 != 0) img2.setImageResource(imgRes2);
         } else {
-            finishGame();
+            endGame(false);
         }
     }
+
+    /* -------------------- GAME LOGIC -------------------- */
 
     public void submit(View v) {
         String userAnswer = answer.getText().toString().trim();
@@ -146,53 +147,49 @@ public class GameActivity extends AppCompatActivity {
         }
 
         if (userAnswer.equalsIgnoreCase(correctAnswer)) {
-            MediaPlayer mp = MediaPlayer.create(this, R.raw.correct);
-            mp.setOnCompletionListener(MediaPlayer::release);
-            mp.start();
-
+            playSound(R.raw.correct);
             score += 10;
             rightAnswers++;
-            updateScoreUI();
         } else {
-            MediaPlayer mp = MediaPlayer.create(this, R.raw.wrong);
-            mp.setOnCompletionListener(MediaPlayer::release);
-            mp.start();
-
+            playSound(R.raw.wrong);
             lives--;
             wrongAnswers++;
             updateLivesUI();
 
+            stopTimer();
             timeLeftMillis -= 10000;
-            if (timeLeftMillis <= 0) {
-                finishGame();
+
+            if (lives <= 0 || timeLeftMillis <= 0) {
+                endGame(true);
                 return;
             }
 
-            if (timeLeftMillis <= 10000) {
-                beepPlayed = true;
-            }
-
+            beepPlayed = false;
             updateTimeUI(timeLeftMillis);
-            restartTimer();
+            startTimer();
         }
 
         questionsAnswered++;
         db.markUsed(currentQuestionId);
+
         updateProgressUI();
+        updateScoreUI();
+
+        if (questionsAnswered >= MAX_QUESTIONS) {
+            endGame(false);
+            return;
+        }
 
         answer.setText("");
-
         if (cursor != null) cursor.close();
         cursor = db.getQuestion();
         loadQuestion();
-
-        if (questionsAnswered >= MAX_QUESTIONS) {
-            finishGame();
-        }
     }
 
+    /* -------------------- TIMER -------------------- */
+
     private void startTimer() {
-        if (timer != null) timer.cancel();
+        stopTimer();
 
         timer = new CountDownTimer(timeLeftMillis, 1000) {
             @Override
@@ -202,12 +199,8 @@ public class GameActivity extends AppCompatActivity {
 
                 if (timeLeftMillis <= 9000 && !beepPlayed) {
                     beepPlayed = true;
-
                     timerGif.setVisibility(View.VISIBLE);
-
-                    beepPlayer = MediaPlayer.create(GameActivity.this, R.raw.beep);
-                    beepPlayer.start();
-
+                    playBeep();
                     timerGif.postDelayed(() ->
                             timerGif.setVisibility(View.GONE), 10000);
                 }
@@ -215,29 +208,20 @@ public class GameActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                stopBeep();
                 updateTimeUI(0);
-                finishGame();
+                endGame(false);
             }
         }.start();
     }
 
-    private void restartTimer() {
+    private void stopTimer() {
         if (timer != null) {
             timer.cancel();
+            timer = null;
         }
-        startTimer();
     }
 
-    private void stopBeep() {
-        if (beepPlayer != null) {
-            if (beepPlayer.isPlaying()) {
-                beepPlayer.stop();
-            }
-            beepPlayer.release();
-            beepPlayer = null;
-        }
-    }
+    /* -------------------- UI -------------------- */
 
     private void updateLivesUI() {
         StringBuilder hearts = new StringBuilder();
@@ -255,35 +239,55 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void updateTimeUI(long millis) {
-        int totalSeconds = (int) (millis / 1000);
-        int minutes = totalSeconds / 60;
-        int seconds = totalSeconds % 60;
-        time.setText(String.format("%02d:%02d", minutes, seconds));
+        int seconds = (int) (millis / 1000);
+        time.setText(String.format("%02d:%02d", seconds / 60, seconds % 60));
     }
 
-    private void finishGame() {
-        if (timer != null) {
-            timer.cancel();
-            timer = null;
-        }
+    /* -------------------- SOUND -------------------- */
 
+    private void playSound(int resId) {
+        MediaPlayer mp = MediaPlayer.create(this, resId);
+        mp.setOnCompletionListener(MediaPlayer::release);
+        mp.start();
+    }
+
+    private void playBeep() {
+        stopBeep();
+        beepPlayer = MediaPlayer.create(this, R.raw.beep);
+        beepPlayer.start();
+    }
+
+    private void stopBeep() {
+        if (beepPlayer != null) {
+            beepPlayer.release();
+            beepPlayer = null;
+        }
+    }
+
+    /* -------------------- END GAME -------------------- */
+
+    private void endGame(boolean gameOver) {
+        stopTimer();
         stopBeep();
 
-        long timeTaken = System.currentTimeMillis() - startTime;
+        long timeTaken = START_TIME - timeLeftMillis;
 
         Intent i = new Intent(this, ResultActivity.class);
         i.putExtra("SCORE", score);
+        i.putExtra("GAME_OVER", gameOver);
+        i.putExtra("LIVES", lives);
         i.putExtra("RIGHT_ANSWERS", rightAnswers);
         i.putExtra("WRONG_ANSWERS", wrongAnswers);
         i.putExtra("TIME_TAKEN", timeTaken);
+
         startActivity(i);
         finish();
     }
 
     @Override
     protected void onDestroy() {
+        stopTimer();
         stopBeep();
-        if (timer != null) timer.cancel();
         if (cursor != null && !cursor.isClosed()) cursor.close();
         super.onDestroy();
     }
