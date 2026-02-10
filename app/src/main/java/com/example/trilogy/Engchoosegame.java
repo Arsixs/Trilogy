@@ -12,9 +12,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-
 public class Engchoosegame extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,25 +24,30 @@ public class Engchoosegame extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        ImageButton Wordbtn = findViewById(R.id.wordbtn);
-        ImageButton Emojibtn = findViewById(R.id.emojibtn);
-        ImageButton Worldbtn = findViewById(R.id.worldbtn);
+        //Initialize
+        ImageButton Wordbtn = findViewById(R.id.wnqbtn);
+        ImageButton Emojibtn = findViewById(R.id.eimbtn);
+        ImageButton Worldbtn = findViewById(R.id.wbbtn);
+        ImageButton Engback = findViewById(R.id.engback);
 
+        //Animation press btn
         addEngChooseGamePressAnimation(Wordbtn);
         addEngChooseGamePressAnimation(Emojibtn);
         addEngChooseGamePressAnimation(Worldbtn);
-
+        addEngChooseGamePressAnimation(Engback);
 
         Wordbtn.setOnClickListener(v -> {
-            Intent intent = new Intent(Engchoosegame.this, WordMeaningQuiz.class);
-            startActivity(intent);
-        });
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.engfragment, new Difficultychooser())
+                    .addToBackStack(null)
+                    .commit();
 
+        });
         Emojibtn.setOnClickListener(v -> {
             Intent intent = new Intent(this, GameActivity.class);
             startActivity(intent);
         });
-
         Worldbtn.setOnClickListener(v -> {
             getSupportFragmentManager()
                     .beginTransaction()
@@ -52,8 +55,9 @@ public class Engchoosegame extends AppCompatActivity {
                     .addToBackStack(null)
                     .commit();
         });
-        
-
+        Engback.setOnClickListener(v -> {
+            finish();
+        });
     }
 
     //EnglishChoosebtn Presser

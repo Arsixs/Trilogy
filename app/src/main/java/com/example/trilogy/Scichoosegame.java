@@ -1,6 +1,5 @@
 package com.example.trilogy;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.animation.OvershootInterpolator;
@@ -25,8 +24,8 @@ public class Scichoosegame extends AppCompatActivity {
             return insets;
         });
 
-        ImageButton ecbtn = findViewById(R.id.ecbtn);
-        ImageButton gtobtn = findViewById(R.id.gtobtn);
+        ImageButton ecbtn = findViewById(R.id.ec);
+        ImageButton gtobtn = findViewById(R.id.gto);
         ImageButton Scienceback = findViewById(R.id.scienceback);
         //Animation press
         addPressPlayScreenAnimation(ecbtn);

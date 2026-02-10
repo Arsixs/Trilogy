@@ -26,8 +26,8 @@ public class Mathchoosegame extends AppCompatActivity {
             return insets;
         });
         ImageButton bdbtn = findViewById(R.id.bdbtn);
-        ImageButton nsbtn = findViewById(R.id.nsbtn);
-        ImageButton smbtn = findViewById(R.id.smbtn);
+        ImageButton nsbtn = findViewById(R.id.smbtn);
+        ImageButton smbtn = findViewById(R.id.nsbtn);
         ImageButton Mathback = findViewById(R.id.mathback);
         //Animation
         addMathChooserGameAnimationPressAnimation(bdbtn);
@@ -44,16 +44,21 @@ public class Mathchoosegame extends AppCompatActivity {
 
         });
         nsbtn.setOnClickListener(v -> {
-            Intent intent = new Intent(this, NumberSequenceGame.class);
-            startActivity(intent);
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.mathfragment, new Difficultychooser())
+                    .addToBackStack(null)
+                    .commit();
         });
-
         smbtn.setOnClickListener(v -> {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.mathfragment, new Difficultychooser())
                     .addToBackStack(null)
                     .commit();
+        });
+        Mathback.setOnClickListener(v -> {
+            finish();
         });
     }
     private void addMathChooserGameAnimationPressAnimation(ImageButton button) {

@@ -19,13 +19,13 @@
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
         android:src="@drawable/backbtn"
-        app:layout_constraintEnd_toEndOf="@+id/ecbtn"
+        app:layout_constraintEnd_toEndOf="@+id/ec"
         app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="@+id/ecbtn"
-        app:layout_constraintTop_toBottomOf="@+id/ecbtn" />
+        app:layout_constraintStart_toStartOf="@+id/ec"
+        app:layout_constraintTop_toBottomOf="@+id/ec" />
 
     <ImageButton
-        android:id="@+id/gtobtn"
+        android:id="@+id/gto"
         android:layout_width="340dp"
         android:layout_height="240dp"
         android:layout_marginTop="192dp"
@@ -37,14 +37,14 @@
         app:srcCompat="@drawable/gtobtn" />
 
     <ImageButton
-        android:id="@+id/ecbtn"
+        android:id="@+id/ec"
         android:layout_width="340dp"
         android:layout_height="240dp"
         android:background="@android:color/transparent"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="@+id/gtobtn"
-        app:layout_constraintStart_toStartOf="@+id/gtobtn"
-        app:layout_constraintTop_toBottomOf="@id/gtobtn"
+        app:layout_constraintEnd_toEndOf="@+id/gto"
+        app:layout_constraintStart_toStartOf="@+id/gto"
+        app:layout_constraintTop_toBottomOf="@id/gto"
         app:srcCompat="@drawable/ecbtn" />
 
     <androidx.fragment.app.FragmentContainerView

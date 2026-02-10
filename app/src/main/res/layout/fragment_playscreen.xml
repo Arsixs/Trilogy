@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/tv_snv"
+        android:layout_width="34dp"
+        android:layout_height="17dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/Leveldash"
+        android:layout_width="375dp"
+        android:layout_height="248dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="18dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sciencebtn"
+        app:srcCompat="@drawable/leveldash" />
+
+    <ProgressBar
+        android:id="@+id/scienceprogress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="337dp"
+        android:layout_height="28dp"
+        android:background="@android:color/transparent"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/progress_green"
+        app:layout_constraintBottom_toBottomOf="@+id/Leveldash"
+        app:layout_constraintEnd_toEndOf="@+id/Leveldash"
+        app:layout_constraintStart_toStartOf="@+id/Leveldash"
+        app:layout_constraintTop_toTopOf="@+id/Leveldash"
+        app:layout_constraintVertical_bias="0.81" />
+
+    <TextView
+        android:id="@+id/sc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_light"
+        android:text="Science"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/scienceprogress"
+        app:layout_constraintEnd_toEndOf="@+id/scienceprogress"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="@+id/scienceprogress"
+        app:layout_constraintTop_toTopOf="@+id/scienceprogress" />
+
+    <TextView
+        android:id="@+id/sclvl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_light"
+        android:text="Lvl 1"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/scienceprogress"
+        app:layout_constraintEnd_toEndOf="@+id/scienceprogress"
+        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintStart_toStartOf="@+id/scienceprogress"
+        app:layout_constraintTop_toTopOf="@+id/scienceprogress" />
+
+    <TextView
+        android:id="@+id/scprog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/fredoka_light"
+        android:text="0%"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/scienceprogress"
+        app:layout_constraintEnd_toEndOf="@+id/scienceprogress"
+        app:layout_constraintTop_toTopOf="@+id/scienceprogress" />
+
+    <ProgressBar
+        android:id="@+id/englishprogress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="337dp"
+        android:layout_height="28dp"
+        android:background="@android:color/transparent"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/progress"
+        app:layout_constraintBottom_toBottomOf="@+id/Leveldash"
+        app:layout_constraintEnd_toEndOf="@+id/Leveldash"
+        app:layout_constraintStart_toStartOf="@+id/Leveldash"
+        app:layout_constraintTop_toTopOf="@+id/Leveldash"
+        app:layout_constraintVertical_bias="0.59" />
+
+    <TextView
+        android:id="@+id/english"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_light"
+        android:text="English"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/englishprogress"
+        app:layout_constraintEnd_toEndOf="@+id/englishprogress"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toStartOf="@+id/englishprogress"
+        app:layout_constraintTop_toTopOf="@+id/englishprogress" />
+
+    <TextView
+        android:id="@+id/engprog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/fredoka_light"
+        android:text="0%"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/englishprogress"
+        app:layout_constraintEnd_toEndOf="@+id/englishprogress"
+        app:layout_constraintTop_toTopOf="@+id/englishprogress"
+        app:layout_constraintVertical_bias="0.68" />
+
+    <TextView
+        android:id="@+id/englvl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_light"
+        android:text="Lvl 1"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/englishprogress"
+        app:layout_constraintEnd_toEndOf="@+id/englishprogress"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="@+id/englishprogress"
+        app:layout_constraintTop_toTopOf="@+id/englishprogress" />
+
+    <ImageButton
+        android:id="@+id/englishbtn"
+        android:layout_width="170dp"
+        android:layout_height="205dp"
+        android:layout_marginTop="132dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/englishbtn" />
+
+    <ImageButton
+        android:id="@+id/sciencebtn"
+        android:layout_width="170dp"
+        android:layout_height="205dp"
+        android:layout_marginStart="24dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/englishbtn"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/englishbtn"
+        app:layout_constraintTop_toBottomOf="@+id/englishbtn"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/sciencebtn" />
+
+    <ImageButton
+        android:id="@+id/mathbtn"
+        android:layout_width="170dp"
+        android:layout_height="205dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/sciencebtn"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/sciencebtn"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/mathbtn" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="168dp"
+        android:layout_height="217dp"
+        android:layout_marginStart="28dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/englishbtn"
+        app:layout_constraintEnd_toStartOf="@+id/englishbtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/englishbtn"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/kidlogo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="159dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/fredoka_one"
+        android:text="Choose Subject"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView2" />
+
+    <ProgressBar
+        android:id="@+id/mathProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="337dp"
+        android:layout_height="28dp"
+        android:background="@android:color/transparent"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/progress_blue"
+        app:layout_constraintBottom_toBottomOf="@+id/Leveldash"
+        app:layout_constraintEnd_toEndOf="@+id/Leveldash"
+        app:layout_constraintStart_toStartOf="@+id/Leveldash"
+        app:layout_constraintTop_toTopOf="@+id/Leveldash"
+        app:layout_constraintVertical_bias="0.36" />
+
+    <TextView
+        android:id="@+id/mathlvl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_light"
+        android:text="Lvl 1"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mathProgress"
+        app:layout_constraintEnd_toEndOf="@+id/mathProgress"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="@+id/mathProgress"
+        app:layout_constraintTop_toTopOf="@+id/mathProgress" />
+
+    <TextView
+        android:id="@+id/math"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_light"
+        android:text="Math"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mathProgress"
+        app:layout_constraintEnd_toEndOf="@+id/mathProgress"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="@+id/mathProgress"
+        app:layout_constraintTop_toTopOf="@+id/mathProgress" />
+
+    <TextView
+        android:id="@+id/mathprog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_light"
+        android:text="0%"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mathProgress"
+        app:layout_constraintEnd_toEndOf="@+id/mathProgress"
+        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintStart_toStartOf="@+id/mathProgress"
+        app:layout_constraintTop_toTopOf="@+id/mathProgress" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

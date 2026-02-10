@@ -1,8 +1,10 @@
 package com.example.trilogy;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -18,6 +20,7 @@ import android.widget.ImageButton;
  * create an instance of this fragment.
  */
 public class Difficultychooser extends Fragment {
+    String gameMode;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -80,14 +83,38 @@ public class Difficultychooser extends Fragment {
         addPressDifficultyAnimation(normalbtn);
         addPressDifficultyAnimation(hardbtn);
 
+        if (getArguments() != null) {
+            gameMode = getArguments().getString("GAME_MODE");
+        }
+
         easybtn.setOnClickListener(v -> {
-            Intent mtheasy = new Intent(requireContext(), bombdef_game.class);
-            startActivity(mtheasy);
+            if ("BOMB_DEFUSE".equals(gameMode)) {
+                Intent intent = new Intent(requireContext(), bombdef_game.class);
+                intent.putExtra("DIFFICULTY", "EASY");
+                startActivity(intent);
+            }
+
         });
+        normalbtn.setOnClickListener(v -> {
+            if ("BOMB_DEFUSE".equals(gameMode)) {
+                Intent intent = new Intent(requireContext(), bombdef_game.class);
+                intent.putExtra("DIFFICULTY", "NORMAL");
+                startActivity(intent);
+            }
+
+        });
+        hardbtn.setOnClickListener(v -> {
+            if ("BOMB_DEFUSE".equals(gameMode)) {
+                Intent intent = new Intent(requireContext(), bombdef_game.class);
+                intent.putExtra("DIFFICULTY", "HARD");
+                startActivity(intent);
+            }
+
+        });
+
         Backbtn.setOnClickListener(v -> {
             requireActivity().getSupportFragmentManager().popBackStack();
         });
-
 
 
         return view;
@@ -117,5 +144,23 @@ public class Difficultychooser extends Fragment {
             }
             return false; // keeps onClick working
         });
+    }
+//toolbar close/open
+    public void onResume() {
+        super.onResume();
+        AppCompatActivity activity = (AppCompatActivity) requireActivity();
+        if (activity.getSupportActionBar() != null) {
+            activity.getSupportActionBar().hide();
+        }
+    }
+
+    //
+    @Override
+    public void onPause() {
+        super.onPause();
+        AppCompatActivity activity = (AppCompatActivity) requireActivity();
+        if (activity.getSupportActionBar() != null) {
+            activity.getSupportActionBar().show();
+        }
     }
 }

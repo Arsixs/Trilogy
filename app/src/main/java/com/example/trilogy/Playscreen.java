@@ -33,7 +33,7 @@ public class Playscreen extends AppCompatActivity {
         addPressPlayScreenAnimation(sciencebtn);
 
         englishbtn.setOnClickListener(v->{
-            Intent engpress = new Intent(Playscreen.this,Engchoosegame.class);
+            Intent engpress = new Intent(Playscreen.this, Engchoosegame.class);
             startActivity(engpress);
 
         });
