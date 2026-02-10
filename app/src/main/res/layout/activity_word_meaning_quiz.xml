@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wordmeaningquizbg"
+    tools:context=".WordMeaningQuiz">
+
+    <LinearLayout
+        android:id="@+id/layoutLives"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/heart1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/ic_heart_full" />
+
+        <ImageView
+            android:id="@+id/heart2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/ic_heart_full" />
+
+        <ImageView
+            android:id="@+id/heart3"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_heart_full" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvQuestion"
+        android:layout_width="311dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="228dp"
+        android:fontFamily="@font/poppinsbold"
+        android:gravity="center"
+        android:text="TextView"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tvLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="48dp"
+        android:text="Level 1"
+        android:textColor="@android:color/background_light"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnA"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="72dp"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        android:fontFamily="@font/poppinsbold"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuestion" />
+
+    <Button
+        android:id="@+id/btnB"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        android:fontFamily="@font/poppinsbold"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuestion" />
+
+    <Button
+        android:id="@+id/btnC"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="184dp"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        android:fontFamily="@font/poppinsbold"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnD"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="184dp"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        android:fontFamily="@font/poppinsbold"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnSubmit"
+        android:layout_width="198dp"
+        android:layout_height="123dp"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        android:src="@drawable/btnsubmit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuestion"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tvScore2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="32dp"
+        android:text="Score:"
+        android:textColor="@android:color/background_light"
+        android:textColorLink="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

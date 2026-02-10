@@ -15,13 +15,13 @@
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
         android:src="@drawable/backbtn"
-        app:layout_constraintEnd_toEndOf="@+id/wbbtn"
+        app:layout_constraintEnd_toEndOf="@+id/worldbtn"
         app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="@+id/wbbtn"
-        app:layout_constraintTop_toBottomOf="@+id/wbbtn" />
+        app:layout_constraintStart_toStartOf="@+id/worldbtn"
+        app:layout_constraintTop_toBottomOf="@+id/worldbtn" />
 
     <ImageButton
-        android:id="@+id/wnqbtn"
+        android:id="@+id/wordbtn"
         android:layout_width="392dp"
         android:layout_height="161dp"
         android:layout_marginTop="164dp"
@@ -34,28 +34,28 @@
         app:srcCompat="@drawable/wnqbtn" />
 
     <ImageButton
-        android:id="@+id/eimbtn"
+        android:id="@+id/emojibtn"
         android:layout_width="392dp"
         android:layout_height="161dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/wbbtn"
-        app:layout_constraintEnd_toEndOf="@+id/wnqbtn"
+        app:layout_constraintBottom_toTopOf="@+id/worldbtn"
+        app:layout_constraintEnd_toEndOf="@+id/wordbtn"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/wnqbtn"
-        app:layout_constraintTop_toBottomOf="@+id/wnqbtn"
+        app:layout_constraintStart_toStartOf="@+id/wordbtn"
+        app:layout_constraintTop_toBottomOf="@+id/wordbtn"
         app:srcCompat="@drawable/eimbtn" />
 
     <ImageButton
-        android:id="@+id/wbbtn"
+        android:id="@+id/worldbtn"
         android:layout_width="396dp"
         android:layout_height="161dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="@+id/eimbtn"
+        app:layout_constraintEnd_toEndOf="@+id/emojibtn"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/eimbtn"
-        app:layout_constraintTop_toBottomOf="@+id/eimbtn"
+        app:layout_constraintStart_toStartOf="@+id/emojibtn"
+        app:layout_constraintTop_toBottomOf="@+id/emojibtn"
         app:srcCompat="@drawable/worldbtn" />
 
     <androidx.fragment.app.FragmentContainerView
@@ -64,7 +64,9 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
