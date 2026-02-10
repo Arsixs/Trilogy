@@ -25,15 +25,6 @@ public class ResultActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Get intent data
-        Intent intent = getIntent();
-        int score = intent.getIntExtra("SCORE", 0);
-        int rightAnswers = intent.getIntExtra("RIGHT_ANSWERS", 0);
-        int timeLeft = intent.getIntExtra("TIME_TAKEN", 0);
-        int wrongAnswers = intent.getIntExtra("WRONG_ANSWERS", 0);
-        boolean gameOver = intent.getBooleanExtra("GAME_OVER", false);
-        int remainingLives = intent.getIntExtra("LIVES", 0);
-
         // Bind views
         TextView resultText = findViewById(R.id.resultScore);
         TextView correctnwrong = findViewById(R.id.resultScore2);
@@ -41,23 +32,40 @@ public class ResultActivity extends AppCompatActivity {
         TextView livesText = findViewById(R.id.remainingLives);
         Button playAgainBtn = findViewById(R.id.playAgainButton);
 
-        // Set result message
+        // Get intent data (✔ CORRECT TYPES)
+        Intent intent = getIntent();
+        int score = intent.getIntExtra("SCORE", 0);
+        int rightAnswers = intent.getIntExtra("RIGHT_ANSWERS", 0);
+        int wrongAnswers = intent.getIntExtra("WRONG_ANSWERS", 0);
+        int remainingLives = intent.getIntExtra("LIVES", 0);
+        boolean gameOver = intent.getBooleanExtra("GAME_OVER", false);
+
+        // ✅ READ TIME AS LONG
+        long timeTaken = intent.getLongExtra("TIME_TAKEN", 0);
+
+        // ✅ FORMAT TIME (MM:SS)
+        int seconds = (int) (timeTaken / 1000);
+        String formattedTime = String.format(
+                "%02d:%02d",
+                seconds / 60,
+                seconds % 60
+        );
+
+        // Set texts
         if (gameOver) {
             resultText.setText("Game Over 😢\nScore: " + score);
-            correctnwrong.setText("Correct: "+rightAnswers+"\nWrong: " +wrongAnswers);
-            timetaken.setText("Time Taken: "+timeLeft);
         } else {
             resultText.setText("You Win! 🎉\nScore: " + score);
-            correctnwrong.setText("Correct: "+rightAnswers+"\nWrong: " +wrongAnswers);
-            timetaken.setText("Time Taken: "+timeLeft);
         }
 
-        // Optional: show remaining lives
-        if (livesText != null) {
-            livesText.setText("Lives Left: " + remainingLives);
-        }
+        correctnwrong.setText(
+                "Correct: " + rightAnswers + "\nWrong: " + wrongAnswers
+        );
 
-        // 🔁 Play again (restart game cleanly)
+        timetaken.setText("Time Taken: " + formattedTime);
+        livesText.setText("Lives Left: " + remainingLives);
+
+        // Play again
         playAgainBtn.setOnClickListener(v -> {
             Intent i = new Intent(ResultActivity.this, GameActivity.class);
             startActivity(i);
@@ -65,4 +73,3 @@ public class ResultActivity extends AppCompatActivity {
         });
     }
 }
-
