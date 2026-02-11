@@ -31,10 +31,12 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
 public class Playscreen extends AppCompatActivity {
+    private String username;
     MediaPlayer mediaPlayer;
     DrawerLayout drawerlayout;
     NavigationView nv_side;
     ActionBarDrawerToggle toggle;
+
 
     float currentVolume = 0.8f; // default volume
 
@@ -43,10 +45,15 @@ public class Playscreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playscreen);
 
+        username = getIntent().getStringExtra("username");
 
+        if (username == null) {
+            Toast.makeText(this, "Username not received!", Toast.LENGTH_LONG).show();
+        }
 
         drawerlayout = findViewById(R.id.main);
         nv_side = findViewById(R.id.nv_side);
+
 
         mediaPlayer = MediaPlayer.create(this, R.raw.background);
         mediaPlayer.setVolume(currentVolume, currentVolume);
@@ -56,6 +63,8 @@ public class Playscreen extends AppCompatActivity {
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        View headerView = nv_side.getHeaderView(0);
+        ImageButton headerAvatar = headerView.findViewById(R.id.header_avatar);
 
 
         if (getSupportActionBar() != null) {
@@ -79,7 +88,29 @@ public class Playscreen extends AppCompatActivity {
                     .replace(R.id.fragment_container, new PlayscreenFrag())
                     .commit();
         }
+        //profile to Account logic
+        headerAvatar.setOnClickListener(v -> {
 
+            if (username == null) {
+                Toast.makeText(this, "User not loaded!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            Account_profile fragment = new Account_profile();
+
+            Bundle bundle = new Bundle();
+            bundle.putString("username", username);
+            fragment.setArguments(bundle);
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .addToBackStack(null)
+                    .commit();
+
+            drawerlayout.closeDrawers();
+        });
+        //Sidebar Clickable
         nv_side.setNavigationItemSelectedListener(item -> {
             if (item.getItemId() == R.id.nav_home) {
                 FragmentManager fragmentManager = getSupportFragmentManager();
@@ -99,11 +130,11 @@ public class Playscreen extends AppCompatActivity {
                 AlertDialog dialog = new AlertDialog.Builder(this)
                         .setView(getLayoutInflater().inflate(R.layout.dialog_settings, null))
                         .create();
+
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 dialog.show();
 
                 View view = dialog.findViewById(android.R.id.content);
-                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-                dialog.show();
 
                 SeekBar musicSeek = view.findViewById(R.id.seek_music);
                 ImageButton closeBtn = view.findViewById(R.id.btn_close);

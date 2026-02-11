@@ -71,7 +71,9 @@ public class Loginscreen extends AppCompatActivity {
 
                             if (hashedPassword.equals(storedPassword)) {
                                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Loginscreen.this, Homescreen.class));
+                                Intent intent = new Intent(Loginscreen.this, Playscreen.class);
+                                intent.putExtra("username", username);
+                                startActivity(intent);
                                 finish();
                             } else {
                                 Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
@@ -87,22 +89,7 @@ public class Loginscreen extends AppCompatActivity {
         });
 
 
-//
-//        dbHelper = new DatabaseHelper(this);
-//
-//        imageButton.setOnClickListener(v -> {
-//
-//            String username = uname1.getText().toString().trim();
-//            String password = pass1.getText().toString().trim();
-//
-//            if (dbHelper.checkUser(username, password)) {
-//                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
-//                startActivity(new Intent(Loginscreen.this, Homescreen.class));
-//                finish();
-//            } else {
-//                Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+
 
         button1.setOnClickListener(v -> {
             startActivity(new Intent(Loginscreen.this, Registerscreen.class));
@@ -155,3 +142,19 @@ public class Loginscreen extends AppCompatActivity {
     }
 
 }
+//
+//        dbHelper = new DatabaseHelper(this);
+//
+//        imageButton.setOnClickListener(v -> {
+//
+//            String username = uname1.getText().toString().trim();
+//            String password = pass1.getText().toString().trim();
+//
+//            if (dbHelper.checkUser(username, password)) {
+//                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
+//                startActivity(new Intent(Loginscreen.this, Homescreen.class));
+//                finish();
+//            } else {
+//                Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+//            }
+//        });

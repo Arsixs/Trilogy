@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="330dp"
-        android:layout_height="93dp"
+        android:layout_width="341dp"
+        android:layout_height="72dp"
         android:layout_marginTop="12dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
@@ -22,11 +22,12 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="330dp"
-        android:layout_height="93dp"
+        android:layout_width="337dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="28dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
         app:srcCompat="@drawable/pass" />
@@ -40,7 +41,7 @@
         android:inputType="text"
         android:textColor="#000000"
         android:textColorHint="#84050505"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
         app:layout_constraintHorizontal_bias="0.546"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
@@ -50,23 +51,22 @@
         android:id="@+id/pass1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="text"
         android:textColor="#000000"
         android:textColorHint="#84050505"
-        app:layout_constraintBottom_toTopOf="@+id/loginbtn"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.546"
+        app:layout_constraintHorizontal_bias="0.552"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
     <ImageButton
         android:id="@+id/loginbtn"
         android:layout_width="310dp"
         android:layout_height="82dp"
+        android:layout_marginTop="28dp"
         android:background="@android:color/transparent"
         android:scaleType="centerCrop"
         android:src="@drawable/loginbtn"

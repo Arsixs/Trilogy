@@ -35,9 +35,9 @@
         android:layout_width="280dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="#CCFFFFFF"
+        android:background="#FFFFFF"
         app:headerLayout="@layout/nav_header_sidebar"
-        app:itemIconTint="@null"
+        app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"
         app:menu="@menu/side_tabs" />
 
