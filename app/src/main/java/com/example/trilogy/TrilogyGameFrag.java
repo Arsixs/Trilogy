@@ -119,10 +119,10 @@ public class TrilogyGameFrag extends Fragment {
                 Intent intent = new Intent(requireActivity(), GameActivity.class);
                 startActivity(intent);
             });
-//
-//            worldbtn.setOnClickListener(view1 ->
-//                startActivity(new Intent(getActivity(), Engchoosegame.class));
-//
+            worldbtn.setOnClickListener(view1 -> {
+                startActivity(new Intent(getActivity(), WordleActivity.class));
+
+                    });
             wnqbtn.setOnClickListener(view1 -> {
                 Intent intent = new Intent(requireActivity(), WordMeaningQuiz.class);
                 startActivity(intent);

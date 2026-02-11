@@ -46,8 +46,8 @@ public class Engchoosegame extends AppCompatActivity {
             startActivity(intent);
         });
         Worldbtn.setOnClickListener(v -> {
-//            Intent intent = new Intent(this, World.class);
-//            startActivity(intent);
+            Intent intent = new Intent(this, WordleActivity.class);
+            startActivity(intent);
         });
         Engback.setOnClickListener(v -> {
             finish();
