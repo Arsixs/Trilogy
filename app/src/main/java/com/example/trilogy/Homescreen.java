@@ -1,14 +1,10 @@
 package com.example.trilogy;
 
-import android.app.AlertDialog;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.PopupWindow;
 import android.view.animation.OvershootInterpolator;

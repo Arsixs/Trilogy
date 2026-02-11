@@ -1,7 +1,5 @@
 package com.example.trilogy;
 
-import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.animation.OvershootInterpolator;

@@ -41,19 +41,29 @@ public class Scichoosegame extends AppCompatActivity {
                     .commit();
 
         });
-        gtobtn.setOnClickListener(v-> {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragmentContainerView, new Difficultychooser())
-                    .addToBackStack(null)
-                    .commit();
+//        gtobtn.setOnClickListener(v-> {
+//            getSupportFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.fragmentContainerView, new Difficultychooser())
+//                    .addToBackStack(null)
+//                    .commit();
 //
+//        });
+
+        gtobtn.setOnClickListener(v -> {
+            Intent intent = new Intent(Scichoosegame.this, GuessOrgan.class);
+            startActivity(intent);
         });
+
+
         Scienceback.setOnClickListener(v -> {
             finish();
 
         });
     }
+
+
+
     private void addPressPlayScreenAnimation(ImageButton button) {
         button.setOnTouchListener((v, event) -> {
             switch (event.getAction()) {
@@ -76,6 +86,8 @@ public class Scichoosegame extends AppCompatActivity {
                     break;
             }
             return false; // keeps onClick working
+
+
         });
     }
 }

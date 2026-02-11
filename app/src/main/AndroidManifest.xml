@@ -12,8 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trilogy">
         <activity
+            android:name=".ElementCatch"
+            android:exported="false" />
+        <activity
+            android:name=".GuessOrgan"
+            android:exported="false" />
+        <activity
             android:name=".ResultActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".GameActivity"
             android:exported="false" />
