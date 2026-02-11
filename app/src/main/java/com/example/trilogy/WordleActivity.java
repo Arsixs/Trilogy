@@ -34,19 +34,19 @@ public class WordleActivity extends AppCompatActivity {
     private TextView cgCounter, points;
 
     private FirebaseFirestore db;
-    private List<String> wordsList = new ArrayList<>();
+    private final List<String> wordsList = new ArrayList<>();
 
     private String correctWord;
     private int currentRow = 0;
     private int correctGuessCount = 0;
     private int score = 0;
 
-    private Handler handler = new Handler();
+    private static final Handler handler = new Handler();
 
-    private final String GREEN = "#538D4E";
-    private final String YELLOW = "#B59F3B";
-    private final String GRAY = "#3A3A3C";
-    private final String RED = "#B00020";
+    private static final String GREEN = "#538D4E";
+    private static final String YELLOW = "#B59F3B";
+    private static final String GRAY = "#3A3A3C";
+    private static final String RED = "#B00020";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -217,10 +217,6 @@ public class WordleActivity extends AppCompatActivity {
 
             cgCounter.setText("GUESSED WORDS:"+correctGuessCount);
             points.setText(String.valueOf(score));
-
-//            Toast.makeText(this,
-//                    "Correct! Score: " + score,
-//                    Toast.LENGTH_LONG).show();
 
             submitBtn.setEnabled(false);
             guessInput.setEnabled(false);
