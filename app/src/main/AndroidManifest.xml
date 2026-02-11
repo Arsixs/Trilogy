@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trilogy">
         <activity
+            android:name=".WordleActivity"
+            android:exported="false" />
+        <activity
             android:name=".ResultActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".GameActivity"
             android:exported="false" />

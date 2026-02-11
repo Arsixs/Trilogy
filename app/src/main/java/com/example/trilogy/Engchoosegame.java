@@ -49,11 +49,13 @@ public class Engchoosegame extends AppCompatActivity {
             startActivity(intent);
         });
         Worldbtn.setOnClickListener(v -> {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.engfragment, new Difficultychooser())
-                    .addToBackStack(null)
-                    .commit();
+            Intent intent = new Intent(this, WordleActivity.class);
+            startActivity(intent);
+//            getSupportFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.engfragment, new Difficultychooser())
+//                    .addToBackStack(null)
+//                    .commit();
         });
         Engback.setOnClickListener(v -> {
             finish();
