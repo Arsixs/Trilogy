@@ -314,11 +314,53 @@
     </LinearLayout>
 
     <Button
-        android:layout_width="179dp"
-        android:layout_height="52dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="702dp" />
+        android:id="@+id/Edit_profile"
+        android:layout_width="211dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="8dp"
+        android:text="Edit Profile"
+        app:layout_constraintEnd_toEndOf="@+id/profileInfoCard"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileInfoCard" />
 
+    <Button
+        android:id="@+id/Loginhere"
+        android:layout_width="108dp"
+        android:layout_height="22dp"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="@+id/textView7"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_one"
+        android:text="Login here"
+        android:textColor="#81E1FD"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/Loginhere"
+        app:layout_constraintEnd_toEndOf="@+id/Loginhere"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/Loginhere"
+        app:layout_constraintTop_toTopOf="@+id/Loginhere"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="76dp"
+        android:fontFamily="@font/fredoka_one"
+        android:text="Have an account?"
+        android:textColor="#F9E7B7"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/Edit_profile"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Edit_profile" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

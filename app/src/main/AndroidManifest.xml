@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trilogy">
         <activity
+            android:name=".ScoreActivityWMQ"
+            android:exported="false"/>
+        <activity
+            android:name=".NumberSequenceGame"
+            android:exported="false"/>
+        <activity
+            android:name=".WordMeaningQuiz"
+            android:exported="false"/>
+        <activity
             android:name=".WordleActivity"
             android:exported="false"/>
         <activity

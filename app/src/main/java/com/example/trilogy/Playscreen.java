@@ -31,7 +31,7 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
 public class Playscreen extends AppCompatActivity {
-    private String username;
+    private String username, navigateTo;
     MediaPlayer mediaPlayer;
     DrawerLayout drawerlayout;
     NavigationView nv_side;
@@ -44,12 +44,15 @@ public class Playscreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playscreen);
-
         username = getIntent().getStringExtra("username");
+        navigateTo = getIntent().getStringExtra("navigateTo");
 
-        if (username == null) {
-            Toast.makeText(this, "Username not received!", Toast.LENGTH_LONG).show();
-        }
+
+//        username = getIntent().getStringExtra("username");
+//
+//        if (username == null) {
+//            Toast.makeText(this, "Username not received!", Toast.LENGTH_LONG).show();
+//        }
 
         drawerlayout = findViewById(R.id.main);
         nv_side = findViewById(R.id.nv_side);
@@ -65,6 +68,18 @@ public class Playscreen extends AppCompatActivity {
 
         View headerView = nv_side.getHeaderView(0);
         ImageButton headerAvatar = headerView.findViewById(R.id.header_avatar);
+
+        if ("profile".equals(navigateTo)) {
+
+            Account_profile profileFragment = Account_profile.newInstance(username);
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, profileFragment)
+                    .commit();
+
+            // Optional: highlight nav item
+            nv_side.setCheckedItem(R.id.nv_side);
+        }
 
 
         if (getSupportActionBar() != null) {
@@ -90,12 +105,6 @@ public class Playscreen extends AppCompatActivity {
         }
         //profile to Account logic
         headerAvatar.setOnClickListener(v -> {
-
-            if (username == null) {
-                Toast.makeText(this, "User not loaded!", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
             Account_profile fragment = new Account_profile();
 
             Bundle bundle = new Bundle();
