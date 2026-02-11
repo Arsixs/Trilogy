@@ -102,19 +102,12 @@ public class TrilogyGameFrag extends Fragment {
                         .commit();
 
             });
-//            getParentFragmentManager()
-//                    .beginTransaction()
-//                    .replace(R.id.fragment_container, new Difficultychooser())
-//                    .addToBackStack(null)
-//                    .commit();
-
-//            nsbtn.setOnClickListener(view1 -> {
-//                        startActivity(new Intent(getActivity(), Mathchoosegame.class));
-//                    });
+            nsbtn.setOnClickListener(v -> {
+                        Intent intent = new Intent(requireActivity(), NumberSequenceGame.class);
+                        startActivity(intent);
+                    });
 //
-//            smbtn.setOnClickListener(view1 -> {
-//                        startActivity(new Intent(getActivity(), Scichoosegame.class));
-//                    });
+//
 //
 //            gtobtn.setOnClickListener(view1 ->
 //                startActivity(new Intent(getActivity(), Engchoosegame.class));
@@ -123,16 +116,17 @@ public class TrilogyGameFrag extends Fragment {
 //                startActivity(new Intent(getActivity(), Mathchoosegame.class));
 //
             eimbtn.setOnClickListener(view1 -> {
-                Intent intent = new Intent(requireContext(), GameActivity.class);
+                Intent intent = new Intent(requireActivity(), GameActivity.class);
                 startActivity(intent);
             });
 //
 //            worldbtn.setOnClickListener(view1 ->
 //                startActivity(new Intent(getActivity(), Engchoosegame.class));
 //
-//            wnqbtn.setOnClickListener(view1 ->
-//                startActivity(new Intent(getActivity(), Mathchoosegame.class));
-
+            wnqbtn.setOnClickListener(view1 -> {
+                Intent intent = new Intent(requireActivity(), WordMeaningQuiz.class);
+                startActivity(intent);
+            });
 
 
 

@@ -36,26 +36,23 @@ public class Mathchoosegame extends AppCompatActivity {
         addMathChooserGameAnimationPressAnimation(Mathback);
 
         bdbtn.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("GAME_MODE", "BOMB_DEFUSE");
+
+            Difficultychooser fragment = new Difficultychooser();
+            fragment.setArguments(bundle);
+
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.mathfragment, new Difficultychooser())
+                    .replace(R.id.mathfragment,fragment)
                     .addToBackStack(null)
                     .commit();
 
         });
         nsbtn.setOnClickListener(v -> {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.mathfragment, new Difficultychooser())
-                    .addToBackStack(null)
-                    .commit();
-        });
-        smbtn.setOnClickListener(v -> {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.mathfragment, new Difficultychooser())
-                    .addToBackStack(null)
-                    .commit();
+            Intent intent = new Intent(this, NumberSequenceGame.class);
+            startActivity(intent);
+
         });
         Mathback.setOnClickListener(v -> {
             finish();

@@ -37,11 +37,8 @@ public class Engchoosegame extends AppCompatActivity {
         addEngChooseGamePressAnimation(Engback);
 
         Wordbtn.setOnClickListener(v -> {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.engfragment, new Difficultychooser())
-                    .addToBackStack(null)
-                    .commit();
+            Intent intent = new Intent(this, WordMeaningQuiz.class);
+            startActivity(intent);
 
         });
         Emojibtn.setOnClickListener(v -> {
@@ -49,11 +46,8 @@ public class Engchoosegame extends AppCompatActivity {
             startActivity(intent);
         });
         Worldbtn.setOnClickListener(v -> {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.engfragment, new Difficultychooser())
-                    .addToBackStack(null)
-                    .commit();
+//            Intent intent = new Intent(this, World.class);
+//            startActivity(intent);
         });
         Engback.setOnClickListener(v -> {
             finish();
