@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="283dp"
+        android:layout_height="381dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_close"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/settings" />
+
+    <SeekBar
+        android:id="@+id/seek_sound"
+        android:layout_width="193dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="8dp"
+        android:max="100"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="0.439"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <SeekBar
+        android:id="@+id/seek_music"
+        android:layout_width="193dp"
+        android:layout_height="18dp"
+        android:max="100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/seek_sound"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/seek_sound"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.073" />
+
+    <ImageButton
+        android:id="@+id/btn_close"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="44dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="@+id/imageView17"
+        app:layout_constraintHorizontal_bias="0.995"
+        app:layout_constraintStart_toStartOf="@+id/imageView17"
+        app:srcCompat="@drawable/exit_x" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/fredoka_one"
+        android:text="Sound"
+        android:textColor="#885B32"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView17"
+        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintStart_toStartOf="@+id/imageView17"
+        app:layout_constraintTop_toBottomOf="@+id/imageView18" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/fredoka_one"
+        android:text="Music"
+        android:textColor="#885B32"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/seek_sound" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="41dp"
+        android:layout_height="39dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toStartOf="@+id/seek_sound"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:srcCompat="@drawable/sound_icon" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="57dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView14"
+        app:layout_constraintStart_toStartOf="@+id/imageView14"
+        app:layout_constraintTop_toBottomOf="@+id/imageView14"
+        app:srcCompat="@drawable/music_icon" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="199dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="56dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="@+id/seek_music"
+        app:layout_constraintHorizontal_bias="0.68"
+        app:layout_constraintStart_toStartOf="@+id/imageView15"
+        app:layout_constraintTop_toBottomOf="@+id/seek_music"
+        app:srcCompat="@drawable/contact_img" />
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="190dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="12dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="@+id/imageView17"
+        app:layout_constraintHorizontal_bias="0.385"
+        app:layout_constraintStart_toStartOf="@+id/imageView17"
+        app:layout_constraintTop_toTopOf="@+id/imageView17"
+        app:srcCompat="@drawable/settings_logo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
