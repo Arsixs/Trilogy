@@ -225,7 +225,7 @@ public class WordleActivity extends AppCompatActivity {
                 resetGame();
                 submitBtn.setEnabled(true);
                 guessInput.setEnabled(true);
-            }, 5000);
+            }, 3000);
 
             return;
         }
