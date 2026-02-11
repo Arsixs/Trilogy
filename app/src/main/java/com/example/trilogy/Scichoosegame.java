@@ -19,6 +19,7 @@ public class Scichoosegame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_scichoosegame);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -27,42 +28,25 @@ public class Scichoosegame extends AppCompatActivity {
 
         ImageButton ecbtn = findViewById(R.id.ecbtn);
         ImageButton gtobtn = findViewById(R.id.gtobtn);
-        ImageButton Scienceback = findViewById(R.id.scienceback);
-        //Animation press
+        ImageButton scienceback = findViewById(R.id.scienceback);
+
+        // Button press animation
         addPressPlayScreenAnimation(ecbtn);
         addPressPlayScreenAnimation(gtobtn);
-        addPressPlayScreenAnimation(Scienceback);
-
-        ecbtn.setOnClickListener(v->{
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragmentContainerView, new Difficultychooser())
-                    .addToBackStack(null)
-                    .commit();
-
-        });
-//        gtobtn.setOnClickListener(v-> {
-//            getSupportFragmentManager()
-//                    .beginTransaction()
-//                    .replace(R.id.fragmentContainerView, new Difficultychooser())
-//                    .addToBackStack(null)
-//                    .commit();
-//
-//        });
+        addPressPlayScreenAnimation(scienceback);
 
         gtobtn.setOnClickListener(v -> {
             Intent intent = new Intent(Scichoosegame.this, GuessOrgan.class);
             startActivity(intent);
         });
 
-
-        Scienceback.setOnClickListener(v -> {
-            finish();
-
+        ecbtn.setOnClickListener(v -> {
+            Intent intent = new Intent(Scichoosegame.this, ElementsFill.class);
+            startActivity(intent);
         });
+
+        scienceback.setOnClickListener(v -> finish());
     }
-
-
 
     private void addPressPlayScreenAnimation(ImageButton button) {
         button.setOnTouchListener((v, event) -> {
@@ -85,9 +69,7 @@ public class Scichoosegame extends AppCompatActivity {
                             .start();
                     break;
             }
-            return false; // keeps onClick working
-
-
+            return false; // keep onClick working
         });
     }
 }

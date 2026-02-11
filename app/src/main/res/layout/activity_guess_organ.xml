@@ -8,18 +8,18 @@
     android:background="@drawable/scibg"
     tools:context=".GuessOrgan">
 
-    <!--    <ImageView-->
-    <!--        android:id="@+id/imageView13"-->
-    <!--        android:layout_width="193dp"-->
-    <!--        android:layout_height="182dp"-->
-    <!--        android:scaleType="centerCrop"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.518"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="0.342"-->
-    <!--        app:srcCompat="@drawable/brain" />-->
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView13"-->
+<!--            android:layout_width="193dp"-->
+<!--            android:layout_height="182dp"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.518"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.342"-->
+<!--            app:srcCompat="@drawable/brain" />-->
 
 
     <ImageView
@@ -167,17 +167,32 @@
         app:layout_constraintStart_toStartOf="@+id/btn3"
         app:layout_constraintTop_toBottomOf="@+id/btn3" />
 
-    <Button
-        android:id="@+id/bbck"
-        android:layout_width="97dp"
-        android:layout_height="55dp"
-        android:text="back"
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/abhaya_libre_semibold"
+        android:text="TextView"
+        android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.005"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975" />
+        app:layout_constraintTop_toTopOf="@+id/imageView16"
+        app:layout_constraintVertical_bias="0.621" />
+
+    <TextView
+        android:id="@+id/txt4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/imageView13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView16"
+        app:layout_constraintVertical_bias="0.884" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

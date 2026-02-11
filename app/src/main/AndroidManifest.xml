@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trilogy">
         <activity
+            android:name=".ElementsFill"
+            android:exported="false" />
+        <activity
             android:name=".ElementCatch"
             android:exported="false" />
         <activity
