@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@+id/wbbtn" />
 
     <ImageButton
-        android:id="@+id/wnq"
+        android:id="@+id/wnqbtn"
         android:layout_width="392dp"
         android:layout_height="161dp"
         android:layout_marginTop="164dp"
@@ -34,16 +34,16 @@
         app:srcCompat="@drawable/wnqbtn" />
 
     <ImageButton
-        android:id="@+id/eim"
+        android:id="@+id/eimbtn"
         android:layout_width="392dp"
         android:layout_height="161dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/wbbtn"
-        app:layout_constraintEnd_toEndOf="@+id/wnq"
+        app:layout_constraintEnd_toEndOf="@+id/wnqbtn"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/wnq"
-        app:layout_constraintTop_toBottomOf="@+id/wnq"
+        app:layout_constraintStart_toStartOf="@+id/wnqbtn"
+        app:layout_constraintTop_toBottomOf="@+id/wnqbtn"
         app:srcCompat="@drawable/eimbtn" />
 
     <ImageButton
@@ -52,10 +52,10 @@
         android:layout_height="161dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="@+id/eim"
+        app:layout_constraintEnd_toEndOf="@+id/eimbtn"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/eim"
-        app:layout_constraintTop_toBottomOf="@+id/eim"
+        app:layout_constraintStart_toStartOf="@+id/eimbtn"
+        app:layout_constraintTop_toBottomOf="@+id/eimbtn"
         app:srcCompat="@drawable/worldbtn" />
 
     <androidx.fragment.app.FragmentContainerView
