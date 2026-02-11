@@ -25,9 +25,9 @@ public class Mathchoosegame extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        ImageButton bdbtn = findViewById(R.id.bdbtn);
-        ImageButton nsbtn = findViewById(R.id.smbtn);
-        ImageButton smbtn = findViewById(R.id.nsbtn);
+        ImageButton bdbtn = findViewById(R.id.bd);
+        ImageButton nsbtn = findViewById(R.id.ns);
+        ImageButton smbtn = findViewById(R.id.smbtn);
         ImageButton Mathback = findViewById(R.id.mathback);
         //Animation
         addMathChooserGameAnimationPressAnimation(bdbtn);

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/header_background"
+    tools:context=".Account_profile">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/Profilepic"
+        android:layout_width="157dp"
+        android:layout_height="156dp"
+        android:layout_marginTop="68dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile_holder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Userprofile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/fredoka_one"
+        android:text="User"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/Profilepic"
+        app:layout_constraintStart_toStartOf="@+id/Profilepic"
+        app:layout_constraintTop_toBottomOf="@id/Profilepic" />
+
+    <ProgressBar
+        android:id="@+id/scienceprogress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="337dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/progress_green"
+        app:layout_constraintEnd_toEndOf="@+id/englishprogress"
+        app:layout_constraintStart_toStartOf="@+id/englishprogress"
+        app:layout_constraintTop_toBottomOf="@+id/english" />
+
+    <TextView
+        android:id="@+id/sc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_light"
+        android:text="Science"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/scienceprogress"
+        app:layout_constraintEnd_toEndOf="@+id/scienceprogress"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="@+id/scienceprogress"
+        app:layout_constraintTop_toTopOf="@+id/scienceprogress" />
+
+    <TextView
+        android:id="@+id/sclvl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_light"
+        android:text="Lvl 1"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/scienceprogress"
+        app:layout_constraintEnd_toEndOf="@+id/scienceprogress"
+        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintStart_toStartOf="@+id/scienceprogress"
+        app:layout_constraintTop_toTopOf="@+id/scienceprogress" />
+
+    <TextView
+        android:id="@+id/scprog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/fredoka_light"
+        android:text="0%"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/scienceprogress"
+        app:layout_constraintEnd_toEndOf="@+id/scienceprogress"
+        app:layout_constraintTop_toTopOf="@+id/scienceprogress" />
+
+    <ProgressBar
+        android:id="@+id/englishprogress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="337dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/progress"
+        app:layout_constraintEnd_toEndOf="@+id/mathProgress"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/mathProgress"
+        app:layout_constraintTop_toBottomOf="@+id/mathProgress" />
+
+    <TextView
+        android:id="@+id/english"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_light"
+        android:text="English"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/englishprogress"
+        app:layout_constraintEnd_toEndOf="@+id/englishprogress"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toStartOf="@+id/englishprogress"
+        app:layout_constraintTop_toTopOf="@+id/englishprogress" />
+
+    <TextView
+        android:id="@+id/engprog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/fredoka_light"
+        android:text="0%"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/englishprogress"
+        app:layout_constraintEnd_toEndOf="@+id/englishprogress"
+        app:layout_constraintTop_toTopOf="@+id/englishprogress"
+        app:layout_constraintVertical_bias="0.68" />
+
+    <TextView
+        android:id="@+id/englvl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_light"
+        android:text="Lvl 1"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/englishprogress"
+        app:layout_constraintEnd_toEndOf="@+id/englishprogress"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="@+id/englishprogress"
+        app:layout_constraintTop_toTopOf="@+id/englishprogress" />
+
+    <ProgressBar
+        android:id="@+id/mathProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="337dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/progress_blue"
+        app:layout_constraintEnd_toEndOf="@+id/Userprofile"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="@+id/Userprofile"
+        app:layout_constraintTop_toBottomOf="@+id/Userprofile" />
+
+    <TextView
+        android:id="@+id/mathlvl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_light"
+        android:text="Lvl 1"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mathProgress"
+        app:layout_constraintEnd_toEndOf="@+id/mathProgress"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="@+id/mathProgress"
+        app:layout_constraintTop_toTopOf="@+id/mathProgress" />
+
+    <TextView
+        android:id="@+id/math"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_light"
+        android:text="Math"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mathProgress"
+        app:layout_constraintEnd_toEndOf="@+id/mathProgress"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="@+id/mathProgress"
+        app:layout_constraintTop_toTopOf="@+id/mathProgress" />
+
+    <TextView
+        android:id="@+id/mathprog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_light"
+        android:text="0%"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mathProgress"
+        app:layout_constraintEnd_toEndOf="@+id/mathProgress"
+        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintStart_toStartOf="@+id/mathProgress"
+        app:layout_constraintTop_toTopOf="@+id/mathProgress" />
+
+    <!-- PROFILE INFO CARD -->
+
+    <LinearLayout
+        android:id="@+id/profileInfoCard"
+        android:layout_width="376dp"
+        android:layout_height="256dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_linear"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/scienceprogress"
+        app:layout_constraintHorizontal_bias="0.641"
+        app:layout_constraintStart_toStartOf="@+id/scienceprogress"
+        app:layout_constraintTop_toBottomOf="@+id/scienceprogress">
+
+        <!-- Username -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Username:"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/useracc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RabanoArsi"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0" />
+
+        <!-- Password -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Password:"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/passacc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="••••••••"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0" />
+
+        <!-- Birthdate -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Birthdate:"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/calendaracc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jan 01, 2005"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0" />
+
+        <!-- Favorite Subject -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Favorite Subject:"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/favsub_acc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Math"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="179dp"
+        android:layout_height="52dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="107dp"
+        tools:layout_editor_absoluteY="702dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
