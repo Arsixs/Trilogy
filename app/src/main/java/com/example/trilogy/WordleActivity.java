@@ -21,12 +21,18 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import android.content.SharedPreferences;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class WordleActivity extends AppCompatActivity {
+
+    private SharedPreferences prefs;
+    private static final String PREF_NAME = "wordle_stats";
+    private static final String KEY_SCORE = "score";
+    private static final String KEY_CORRECT = "correct_guess_count";
 
     private GridLayout gridLayout;
     private EditText guessInput;
@@ -66,12 +72,26 @@ public class WordleActivity extends AppCompatActivity {
         cgCounter = findViewById(R.id.cgCounter);
         points = findViewById(R.id.points);
 
+        prefs = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+// Load saved data
+        score = prefs.getInt(KEY_SCORE, 0);
+        correctGuessCount = prefs.getInt(KEY_CORRECT, 0);
+// Update UI
+        cgCounter.setText("GUESSED WORDS: " + correctGuessCount);
+        points.setText(score + " pts");
+
         db = FirebaseFirestore.getInstance();
         loadWordsFromFirestore();
 
         createGrid();
 
         submitBtn.setOnClickListener(v -> checkGuess());
+    }
+    private void saveStats() {
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(KEY_SCORE, score);
+        editor.putInt(KEY_CORRECT, correctGuessCount);
+        editor.apply();
     }
 
     private void createGrid() {
@@ -216,7 +236,9 @@ public class WordleActivity extends AppCompatActivity {
             addScore(currentRow);
 
             cgCounter.setText("GUESSED WORDS:"+correctGuessCount);
-            points.setText(String.valueOf(score));
+            points.setText(score+" pts");
+
+            saveStats();
 
             submitBtn.setEnabled(false);
             guessInput.setEnabled(false);

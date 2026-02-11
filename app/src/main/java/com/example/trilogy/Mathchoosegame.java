@@ -26,8 +26,8 @@ public class Mathchoosegame extends AppCompatActivity {
             return insets;
         });
         ImageButton bdbtn = findViewById(R.id.bd);
-        ImageButton nsbtn = findViewById(R.id.ns);
-        ImageButton smbtn = findViewById(R.id.smbtn);
+        ImageButton nsbtn = findViewById(R.id.smbtn);
+        ImageButton smbtn = findViewById(R.id.ns);
         ImageButton Mathback = findViewById(R.id.mathback);
         //Animation
         addMathChooserGameAnimationPressAnimation(bdbtn);

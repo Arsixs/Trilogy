@@ -43,7 +43,7 @@ public class Homescreen extends AppCompatActivity {
 
 
         playbtn.setOnClickListener(view -> {
-            Intent play = new Intent(Homescreen.this, Playscreen.class);
+            Intent play = new Intent(this, Playscreen.class);
             startActivity(play);
             finish();
         });
