@@ -165,11 +165,44 @@ public class WordleActivity extends AppCompatActivity {
                 .addOnFailureListener(e -> Toast.makeText(this, "Failed to load words", Toast.LENGTH_SHORT).show());
     }
 
+//    private void pickRandomWord() {
+//        Random rand = new Random();
+//        correctWord = wordsList.get(rand.nextInt(wordsList.size()));
+//        System.out.println("NEW WORD: " + correctWord);
+//    }
+    // ------------------ NEW / UPDATED METHODS ------------------
+
     private void pickRandomWord() {
+        List<String> unusedWords = getUnusedWords();
+        if (unusedWords.isEmpty()) {
+            // All words have been used, reset
+            prefs.edit().remove(KEY_GUESSED_WORDS).apply();
+            unusedWords = new ArrayList<>(wordsList);
+            Toast.makeText(this, "All words used! Resetting used words.", Toast.LENGTH_SHORT).show();
+        }
+
         Random rand = new Random();
-        correctWord = wordsList.get(rand.nextInt(wordsList.size()));
+        correctWord = unusedWords.get(rand.nextInt(unusedWords.size()));
         System.out.println("NEW WORD: " + correctWord);
     }
+
+    /**
+     * Returns a list of words that have not been guessed yet
+     */
+    private List<String> getUnusedWords() {
+        String usedWordsStr = prefs.getString(KEY_GUESSED_WORDS, "");
+        List<String> usedWords = new ArrayList<>();
+        if (!usedWordsStr.isEmpty()) {
+            for (String w : usedWordsStr.split(",")) usedWords.add(w);
+        }
+
+        List<String> unusedWords = new ArrayList<>();
+        for (String word : wordsList) {
+            if (!usedWords.contains(word)) unusedWords.add(word);
+        }
+        return unusedWords;
+    }
+
 
     // ------------------ GAME LOGIC ------------------
 
