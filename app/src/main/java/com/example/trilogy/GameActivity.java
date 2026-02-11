@@ -19,8 +19,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.trilogy.db.DatabaseHelper;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.DocumentSnapshot;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -32,6 +32,8 @@ public class GameActivity extends AppCompatActivity {
     private int questionsAnswered = 0;
     private int rightAnswers = 0;
     private int wrongAnswers = 0;
+    private boolean gameStarted = false;
+
 
     private ProgressBar progressBar;
     private TextView progressText, lifeText, sscore, time;
@@ -46,6 +48,7 @@ public class GameActivity extends AppCompatActivity {
 
     private CountDownTimer timer;
     private long timeLeftMillis = START_TIME;
+    private long startTime = 0L;
 
     private MediaPlayer beepPlayer;
     private boolean beepPlayed = false;
@@ -81,13 +84,15 @@ public class GameActivity extends AppCompatActivity {
         updateTimeUI(timeLeftMillis);
 
         db = new DatabaseHelper(this);
+        startTime = System.currentTimeMillis();
 
         if (db.isEmpty()) {
             syncFromFirestore();
         } else {
             cursor = db.getQuestion();
             loadQuestion();
-            startTimer();
+            startGame();
+
         }
     }
 
@@ -108,7 +113,8 @@ public class GameActivity extends AppCompatActivity {
                     }
                     cursor = db.getQuestion();
                     loadQuestion();
-                    startTimer();
+                    startGame();
+
                 })
                 .addOnFailureListener(e ->
                         Toast.makeText(this, "Failed to load questions", Toast.LENGTH_SHORT).show()
@@ -131,9 +137,13 @@ public class GameActivity extends AppCompatActivity {
 
             if (imgRes1 != 0) img1.setImageResource(imgRes1);
             if (imgRes2 != 0) img2.setImageResource(imgRes2);
+
         } else {
-            endGame(false);
+            if (gameStarted) {
+                endGame(false);
+            }
         }
+
     }
 
     /* -------------------- GAME LOGIC -------------------- */
@@ -159,8 +169,13 @@ public class GameActivity extends AppCompatActivity {
             stopTimer();
             timeLeftMillis -= 10000;
 
-            if (lives <= 0 || timeLeftMillis <= 0) {
+            if (lives <= 0) {
                 endGame(true);
+                return;
+            }
+
+            if (timeLeftMillis <= 0) {
+                endGame(false);
                 return;
             }
 
@@ -171,7 +186,6 @@ public class GameActivity extends AppCompatActivity {
 
         questionsAnswered++;
         db.markUsed(currentQuestionId);
-
         updateProgressUI();
         updateScoreUI();
 
@@ -187,6 +201,14 @@ public class GameActivity extends AppCompatActivity {
     }
 
     /* -------------------- TIMER -------------------- */
+    private void startGame() {
+        if (gameStarted) return;
+
+        gameStarted = true;
+        startTime = System.currentTimeMillis();
+        startTimer();
+    }
+
 
     private void startTimer() {
         stopTimer();
@@ -270,7 +292,7 @@ public class GameActivity extends AppCompatActivity {
         stopTimer();
         stopBeep();
 
-        long timeTaken = START_TIME - timeLeftMillis;
+        long timeTaken = System.currentTimeMillis() - startTime;
 
         Intent i = new Intent(this, ResultActivity.class);
         i.putExtra("SCORE", score);
@@ -279,7 +301,6 @@ public class GameActivity extends AppCompatActivity {
         i.putExtra("RIGHT_ANSWERS", rightAnswers);
         i.putExtra("WRONG_ANSWERS", wrongAnswers);
         i.putExtra("TIME_TAKEN", timeTaken);
-
         startActivity(i);
         finish();
     }
